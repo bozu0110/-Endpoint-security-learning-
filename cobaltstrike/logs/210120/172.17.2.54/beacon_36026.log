@@ -1,0 +1,4 @@
+01/20 16:36:42 [metadata] beacon_53904 -> 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 2164; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/20 16:36:36 [output]
+established link to parent beacon: 172.17.2.54
+

@@ -1,0 +1,4 @@
+02/26 11:11:44 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 4620; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/26 13:55:31 [task] 镜像劫持
+02/26 13:56:09 [input] <neo> exit
+02/26 13:56:09 [task] Tasked beacon to exit

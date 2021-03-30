@@ -1,0 +1,45 @@
+01/25 14:31:41 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: a; pid: 1996; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/25 14:32:06 [input] <neo> ssh-key 172.17.2.58 a
+01/25 14:32:29 [input] <neo> ssh 172.17.2.58 a
+01/25 14:32:29 [error] ssh error: not enough arguments
+01/25 14:33:20 [input] <neo> ssh 172.17.2.58:80 a a
+01/25 14:33:20 [task] Tasked beacon to SSH to 172.17.2.58:80 as a
+01/25 14:33:35 [checkin] host called home, sent: 437307 bytes
+01/25 14:33:37 [error] SSH error: Failed getting banner
+01/25 14:34:38 [input] <neo> ssh 172.17.2.58:82 a a
+01/25 14:34:38 [task] Tasked beacon to SSH to 172.17.2.58:82 as a
+01/25 14:35:37 [checkin] host called home, sent: 437307 bytes
+01/25 14:35:39 [error] SSH error: ÓÉÓÚÄ¿±ê¼ÆËã»ú»ý¼«¾Ü¾ø£¬ÎÞ·¨Á¬½Ó¡£
+01/25 14:38:56 [input] <neo> shell ssh 172.17.2.58
+01/25 14:38:56 [task] Tasked beacon to run: ssh 172.17.2.58
+01/25 14:39:09 [input] <neo> shell a
+01/25 14:39:09 [task] Tasked beacon to run: a
+01/25 14:39:39 [checkin] host called home, sent: 78 bytes
+01/25 14:39:39 [output]
+received output:
+'ssh' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+
+01/25 14:39:39 [output]
+received output:
+'a' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+
+01/25 14:43:11 [input] <neo> ssh 172.17.2.58:80 a a
+01/25 14:43:11 [task] Tasked beacon to SSH to 172.17.2.58:80 as a
+01/25 14:43:39 [checkin] host called home, sent: 437307 bytes
+01/25 14:43:40 [error] SSH error: Failed getting banner
+01/25 14:47:42 [input] <neo> ssh root@172.17.2.58:80 a a
+01/25 14:47:43 [task] Tasked beacon to SSH to root@172.17.2.58:80 as a
+01/25 14:48:40 [checkin] host called home, sent: 437307 bytes
+01/25 14:48:41 [error] SSH error: Could not resolve root@172.17.2.58
+01/25 16:41:10 [input] <neo> ssh root@172.17.2.58:80 a a
+01/25 16:41:10 [task] Tasked beacon to SSH to root@172.17.2.58:80 as a
+01/25 16:41:46 [checkin] host called home, sent: 437307 bytes
+01/25 16:41:47 [error] SSH error: Could not resolve root@172.17.2.58
+01/25 16:46:59 [input] <neo> ssh root@172.17.2.58:80 a a
+01/25 16:46:59 [task] Tasked beacon to SSH to root@172.17.2.58:80 as a
+01/25 16:47:53 [checkin] host called home, sent: 437307 bytes
+01/25 16:47:55 [error] SSH error: Could not resolve root@172.17.2.58

