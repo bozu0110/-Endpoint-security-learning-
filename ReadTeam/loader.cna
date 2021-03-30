@@ -1,0 +1,4 @@
+# load Rules By Script 
+
+include(script_resource("Script/menu.cna"))
+include(script_resource("Script/CrossC2.cna"))

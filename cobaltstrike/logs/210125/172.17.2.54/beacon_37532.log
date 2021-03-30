@@ -1,0 +1,9 @@
+01/25 11:30:13 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: a; pid: 2760; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/25 11:31:14 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: a; pid: 2760; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/25 11:35:01 [input] <neo> exit
+01/25 11:35:01 [task] Tasked beacon to exit
+01/25 11:35:14 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: a; pid: 2760; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/25 11:35:10 [checkin] host called home, sent: 8 bytes
+01/25 11:35:10 [output]
+beacon exit.
+

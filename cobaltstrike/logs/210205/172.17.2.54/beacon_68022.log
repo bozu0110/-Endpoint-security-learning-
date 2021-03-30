@@ -1,0 +1,8 @@
+02/05 09:43:07 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 3252; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/05 09:46:42 [task] 新增计划任务schtasks /create /tn "test" /tr c:\window\system32\calc.exe /st 14:20 /sc once
+02/05 09:47:01 [checkin] host called home, sent: 96 bytes
+02/05 09:47:02 [output]
+received output:
+错误: 帐户名与安全标识间无任何映射完成。
+(39,4):LogonType:
+

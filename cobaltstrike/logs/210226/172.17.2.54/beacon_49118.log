@@ -1,0 +1,7 @@
+02/26 10:35:54 [task] Tasked beacon to run: sc delete netsrv
+02/26 10:35:59 [checkin] host called home, sent: 47 bytes
+02/26 10:35:59 [output]
+received output:
+[SC] DeleteService 成功
+
+

