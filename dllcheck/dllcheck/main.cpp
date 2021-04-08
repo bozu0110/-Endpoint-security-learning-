@@ -25,10 +25,6 @@ enum DLL_LOCATION { DLL_WINDOWS_DIRECTORY, DLL_WINDOWS_16BIT_DIRECTORY, DLL_SYST
 UINT iSize = sizeof('\\');
 void StringToWstring(std::wstring& szDst, std::string str);
 
-
-
-
-
 int getBytes(char* _dst, size_t _len, long _offset_file, HANDLE hF) {
 	int cnt = 0;
 	DWORD nNumberOfBytesRead;
@@ -50,81 +46,77 @@ int getBytesW(WCHAR* _dst, size_t _len, long _offset_file, HANDLE hF) {
 		cnt = (int)& nNumberOfBytesRead;
 	return cnt;
 }
-int setBytes(char* _src, int _len, long _offset_file, HANDLE hF) {
-	int cnt = 0;
-	DWORD nNumberOfBytesRead;
-	SetFilePointer(hF, _offset_file, NULL, FILE_BEGIN);
-	WriteFile(hF, _src, _offset_file, &nNumberOfBytesRead, NULL);
-	cnt = (int)& nNumberOfBytesRead;
-	return cnt;
-}
 
-
-IMAGE_DOS_HEADER get_IMAGE_DOS_HEADER(HANDLE hF)
+void get_IMAGE_DOS_HEADER(char *buf,HANDLE hF)
 {
-	char* buf = new char[sizeof(IMAGE_DOS_HEADER)];
 	if (buf != NULL) {
 		memset(buf, 0, sizeof(IMAGE_DOS_HEADER));
-
 		getBytes(buf, sizeof(IMAGE_DOS_HEADER), 0, hF);
-		//cout<<"dos:"<<&buf<<endl;
-
-		return (IMAGE_DOS_HEADER)* ((IMAGE_DOS_HEADER*)buf);
+		//cout<<"dos:"<<&buf<<endl;	
 	}
 }
 
-_IMAGE_NT_HEADERS64 get_IMAGE_NT_HEADER(HANDLE hF, LONG e_lfanew)
-{
-	char* buf = new char[sizeof(_IMAGE_NT_HEADERS64)];
+void get_IMAGE_NT_HEADER(char *buf,HANDLE hF, LONG e_lfanew)
+{	
 	if (buf != NULL){
 		memset(buf, 0, sizeof(_IMAGE_NT_HEADERS64));
 		//cout<<sizeof(_IMAGE_NT_HEADERS64)<<endl;
 		getBytes(buf, sizeof(_IMAGE_NT_HEADERS64), e_lfanew, hF);
-		//cout<<"nt"<<&buf<<endl;
-		return (_IMAGE_NT_HEADERS64)* ((_IMAGE_NT_HEADERS64*)buf);
+		//cout<<"nt"<<&buf<<endl;	
 	}
-		
 }
 
-_IMAGE_NT_HEADERS get_IMAGE_NT_HEADER32(HANDLE hF, LONG e_lfanew)
+ void get_IMAGE_NT_HEADER32(char * buf,HANDLE hF, LONG e_lfanew)
 {
-	char* buf = new char[sizeof(_IMAGE_NT_HEADERS)];
 	if (buf != NULL) {
 		memset(buf, 0, sizeof(_IMAGE_NT_HEADERS));
 		//cout<<sizeof(_IMAGE_NT_HEADERS64)<<endl;
 		getBytes(buf, sizeof(_IMAGE_NT_HEADERS), e_lfanew, hF);
-		//cout<<"nt"<<&buf<<endl;
-		return (_IMAGE_NT_HEADERS)* ((_IMAGE_NT_HEADERS*)buf);
+		//cout<<"nt"<<&buf<<endl;		
 	}
-	
 }
 
 void get_IMAGE_SECTION_HEADERS(_IMAGE_SECTION_HEADER* _dst, size_t _cnt, HANDLE hF)
 {
 	int cnt = (int)_cnt;
-	_IMAGE_DOS_HEADER dsh = get_IMAGE_DOS_HEADER(hF);
+	char* IDH = new char[sizeof(_IMAGE_DOS_HEADER)];
+	get_IMAGE_DOS_HEADER(IDH, hF);
+	_IMAGE_DOS_HEADER dsh = (IMAGE_DOS_HEADER) * ((IMAGE_DOS_HEADER*)IDH);
+	delete[] IDH;
 	long  offset = dsh.e_lfanew + sizeof(_IMAGE_NT_HEADERS64);
 	getBytes((char*)_dst, sizeof(IMAGE_SECTION_HEADER) * cnt, offset, hF);
 }
+
 void get_IMAGE_SECTION_HEADERS32(_IMAGE_SECTION_HEADER* _dst, size_t _cnt, HANDLE hF)
 {
 	int cnt = (int)_cnt;
-	_IMAGE_DOS_HEADER dsh = get_IMAGE_DOS_HEADER(hF);
+	char* IDH = new char[sizeof(_IMAGE_DOS_HEADER)];
+	get_IMAGE_DOS_HEADER(IDH, hF);
+	_IMAGE_DOS_HEADER dsh = (IMAGE_DOS_HEADER) * ((IMAGE_DOS_HEADER*)IDH);
+	delete[] IDH;
 	long  offset = dsh.e_lfanew + sizeof(_IMAGE_NT_HEADERS);
 	getBytes((char*)_dst, sizeof(IMAGE_SECTION_HEADER) * cnt, offset, hF);
 }
+
 unsigned int rva_To_fa(unsigned int rva, HANDLE hF)
 //将相对虚拟地址转为文件偏移地址
 {
 	unsigned int fa = 0;
-	_IMAGE_DOS_HEADER dsh = get_IMAGE_DOS_HEADER(hF);
-	_IMAGE_NT_HEADERS64 nth = get_IMAGE_NT_HEADER(hF, dsh.e_lfanew);
-	IMAGE_FILE_HEADER fh = nth.FileHeader;
+	char* IDH = new char[sizeof(_IMAGE_DOS_HEADER)];
+	get_IMAGE_DOS_HEADER(IDH, hF);
+	_IMAGE_DOS_HEADER dsh= (IMAGE_DOS_HEADER) * ((IMAGE_DOS_HEADER*)IDH);
+	delete[] IDH;
 
+	char* INH = new char[sizeof(_IMAGE_NT_HEADERS64)];
+	get_IMAGE_NT_HEADER(INH, hF, dsh.e_lfanew);
+	_IMAGE_NT_HEADERS64 nth = (_IMAGE_NT_HEADERS64) * ((_IMAGE_NT_HEADERS64*)INH);;
+	delete[] INH;
+
+	IMAGE_FILE_HEADER fh = nth.FileHeader;
 	int sectionCnt;
 	sectionCnt = fh.NumberOfSections;
 	size_t number_of_section = (size_t)sectionCnt;
-	IMAGE_SECTION_HEADER* section_header = new IMAGE_SECTION_HEADER[ sectionCnt+1];
+	IMAGE_SECTION_HEADER* section_header = new IMAGE_SECTION_HEADER[ sectionCnt];
 	get_IMAGE_SECTION_HEADERS(section_header, number_of_section, hF);
 	if (rva < (dsh.e_lfanew + sizeof(_IMAGE_NT_HEADERS64) + number_of_section * sizeof(IMAGE_SECTION_HEADER)))
 		//rva还是在头部
@@ -146,19 +138,30 @@ unsigned int rva_To_fa(unsigned int rva, HANDLE hF)
 		int off = rva - section_header[sectionserial].VirtualAddress;
 		fa = section_header[sectionserial].PointerToRawData + off;
 	}
+	delete[] section_header;
 	return fa;
+
 }
 
 unsigned int rva_To_fa32(unsigned int rva, HANDLE hF)
 //将相对虚拟地址转为文件偏移地址
 {
 	unsigned int fa = 0;
-	_IMAGE_DOS_HEADER dsh = get_IMAGE_DOS_HEADER(hF);
-	_IMAGE_NT_HEADERS nth = get_IMAGE_NT_HEADER32(hF, dsh.e_lfanew);
+
+	char* IDH = new char[sizeof(_IMAGE_DOS_HEADER)];
+	get_IMAGE_DOS_HEADER(IDH, hF);
+	_IMAGE_DOS_HEADER dsh = (IMAGE_DOS_HEADER) * ((IMAGE_DOS_HEADER*)IDH);
+	delete[] IDH;
+
+	char* INH = new char[sizeof(_IMAGE_NT_HEADERS)];
+	get_IMAGE_NT_HEADER32(INH, hF, dsh.e_lfanew);
+	_IMAGE_NT_HEADERS nth = (_IMAGE_NT_HEADERS) * ((_IMAGE_NT_HEADERS*)INH);;
+	delete[] INH;
+
 	int sectionCnt;
 	sectionCnt = nth.FileHeader.NumberOfSections;
 	size_t number_of_section = (size_t)sectionCnt;
-	IMAGE_SECTION_HEADER* section_header = new IMAGE_SECTION_HEADER[ sectionCnt+1];
+	IMAGE_SECTION_HEADER* section_header = new IMAGE_SECTION_HEADER[ sectionCnt];
 	get_IMAGE_SECTION_HEADERS32(section_header, number_of_section, hF);
 	if (rva < (dsh.e_lfanew + sizeof(_IMAGE_NT_HEADERS) + number_of_section * sizeof(IMAGE_SECTION_HEADER)))
 		//rva还是在头部
@@ -182,9 +185,11 @@ unsigned int rva_To_fa32(unsigned int rva, HANDLE hF)
 	}
 	return fa;
 }
+
 void get_IMAGE_IMPORT_DESCRIPTORS(IMAGE_IMPORT_DESCRIPTOR* rst, HANDLE hF, _IMAGE_NT_HEADERS64 nth, int i) {
 	getBytes((char*)rst, sizeof(IMAGE_IMPORT_DESCRIPTOR) * i, rva_To_fa(nth.OptionalHeader.DataDirectory[1].VirtualAddress, hF), hF);
 }
+
 void get_IMAGE_IMPORT_DESCRIPTORS32(IMAGE_IMPORT_DESCRIPTOR* rst, HANDLE hF, _IMAGE_NT_HEADERS nth, int i) {
 	//cout << rva_To_fa32(nth.OptionalHeader.DataDirectory[1].VirtualAddress,hF) << endl;
 	getBytes((char*)rst, sizeof(IMAGE_IMPORT_DESCRIPTOR) * i, rva_To_fa32(nth.OptionalHeader.DataDirectory[1].VirtualAddress, hF), hF);
@@ -198,8 +203,14 @@ int dlllist(char * NAME,string * str) {
 		return 0;
 	}
 	//导出调用的dll名字       
-	_IMAGE_DOS_HEADER dsh = get_IMAGE_DOS_HEADER(hF);
-	_IMAGE_NT_HEADERS64 nth = get_IMAGE_NT_HEADER(hF, dsh.e_lfanew);
+	char* IDH = new char[sizeof(_IMAGE_DOS_HEADER)];
+	get_IMAGE_DOS_HEADER(IDH, hF);
+	_IMAGE_DOS_HEADER dsh = (IMAGE_DOS_HEADER) * ((IMAGE_DOS_HEADER*)IDH);
+	delete[] IDH;
+	char* INH = new char[sizeof(_IMAGE_NT_HEADERS64)];
+	get_IMAGE_NT_HEADER(INH, hF, dsh.e_lfanew);
+	_IMAGE_NT_HEADERS64 nth = (_IMAGE_NT_HEADERS64) * ((_IMAGE_NT_HEADERS64*)INH);;
+	delete[] INH;
 	int import_count = 0;
 	if (nth.FileHeader.SizeOfOptionalHeader == 240) {
 		filetype = 64;
@@ -213,7 +224,6 @@ int dlllist(char * NAME,string * str) {
 					getBytes(bits, 1, rva_To_fa(IIMD[IIMDserial].Name, hF) + byteserial, hF);
 					if (*bits != NULL) {
 						str[IIMDserial] += *bits;
-
 					}
 					else {
 						break;
@@ -222,13 +232,17 @@ int dlllist(char * NAME,string * str) {
 				}
 			}
 		}
+		delete[] bits;
+		delete[] IIMD;
 	}
 	else {
 		filetype = 32;
-		_IMAGE_NT_HEADERS nth = get_IMAGE_NT_HEADER32(hF, dsh.e_lfanew);
+		char* INH = new char[sizeof(_IMAGE_NT_HEADERS)];
+		get_IMAGE_NT_HEADER32(INH, hF, dsh.e_lfanew);
+		_IMAGE_NT_HEADERS nth = (_IMAGE_NT_HEADERS) * ((_IMAGE_NT_HEADERS*)INH);;
+		delete[] INH;
 		import_count = nth.OptionalHeader.DataDirectory[1].Size / 20;
 		IMAGE_IMPORT_DESCRIPTOR* IIMD = new IMAGE_IMPORT_DESCRIPTOR[import_count];
-
 		get_IMAGE_IMPORT_DESCRIPTORS32(IIMD, hF, nth, import_count);
 		char* bits = new char[2];
 		if (IIMD != NULL) {
@@ -245,6 +259,8 @@ int dlllist(char * NAME,string * str) {
 				}
 			}
 		}
+		delete[] bits;
+		delete[] IIMD;
 	}
 	return import_count;
 }
@@ -300,6 +316,7 @@ int check1(DLL_STATUS * dllSearch, WCHAR * tPathBeingChecked){
 	}
 	return 2;
 }
+
 int check2(DLL_STATUS* dllSearch, WCHAR* tPathBeingChecked) {
 	if (PathFileExistsW(tPathBeingChecked))
 	{
@@ -313,6 +330,7 @@ int check2(DLL_STATUS* dllSearch, WCHAR* tPathBeingChecked) {
 	}
 	return 2;
 }
+
 int check3(DLL_STATUS* dllSearch, WCHAR* tPathBeingChecked) {
 	if (PathFileExistsW(tPathBeingChecked))
 	{
@@ -326,6 +344,7 @@ int check3(DLL_STATUS* dllSearch, WCHAR* tPathBeingChecked) {
 	}
 	return 2;
 }
+
 int check4(DLL_STATUS* dllSearch, WCHAR* tPathBeingChecked) {
 	if (PathFileExistsW(tPathBeingChecked))
 	{
@@ -357,13 +376,15 @@ int recheck(WCHAR * pFilename){
 	string* DllList = new string[MAX_PATH];
 	if (dlllist(name, DllList) != 0) {
 		if (dllcheck(name) == 1) {
+			delete[] DllList;
 			return 1;
 		}
 	}
+	delete[] DllList;
 	return 0;
 }
 
-WCHAR * getpath(WCHAR * pathmem, const wchar_t * add)
+WCHAR *getpath(WCHAR * pathmem, const wchar_t * add)
 {
 	WCHAR path[260];
 	wcscpy_s(path, _countof(path), pathmem);
@@ -376,8 +397,6 @@ WCHAR * getpath(WCHAR * pathmem, const wchar_t * add)
 
 int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 	int patherrornum = 0;
-	WCHAR* slash = new WCHAR[2];
-	slash[0] = L'\\';
 	int* bchanged = new int[1024];
 	for (int changedserial = 0; changedserial < 1024; changedserial++) {
 		bchanged[changedserial] = 0;
@@ -397,55 +416,57 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 	/* Usually C:\Windows\System32*/
 	WCHAR* wSystemDirectory = new WCHAR[260];
 	rsize_t destsz1 = GetSystemDirectoryW(pathmem, MAX_PATH);
-	wSystemDirectory = getpath(pathmem, slash);
+	wcscpy_s(wSystemDirectory, MAX_PATH, getpath(pathmem, L"\\"));
 
 	//Usually C:\Windows 
-	WCHAR* wWindowsDirectory = new WCHAR[260];
 	rsize_t destsz2 = GetWindowsDirectoryW(pathmem, MAX_PATH);
-	wWindowsDirectory = getpath(pathmem, slash);
+	WCHAR* wWindowsDirectory = new WCHAR[260];
+	wcscpy_s(wWindowsDirectory,MAX_PATH,getpath(pathmem, L"\\"));
 	//wWindowsDirectory[destsz2] = L'\\';
 	//wWindowsDirectory[destsz2+1] = L'\0';
 	//wcout << wWindowsDirectory << endl;
 	// Usually C:\Windows\System 
 	WCHAR* wSystemDirectory_16bit = new WCHAR[260];
 	rsize_t destsz3 = GetWindowsDirectoryW(pathmem, MAX_PATH);
-	wSystemDirectory_16bit = getpath(pathmem, L"\\system\\");
+	wcscpy_s(wSystemDirectory_16bit, MAX_PATH, getpath(pathmem, L"\\system\\"));
 	//syswow64
 	WCHAR* tWow64Dir = new WCHAR[MAX_PATH];
 	rsize_t destsz4 = GetWindowsDirectoryW(pathmem, MAX_PATH);
-	tWow64Dir = getpath(pathmem, L"syswow64\\");
+	wcscpy_s(tWow64Dir, MAX_PATH, getpath(pathmem, L"\\syswow64\\"));
+
 	// Various directories delimitered by a semi-colon in the path environmental variable 
 	WCHAR* wPathVariable = new WCHAR[32767];
 	GetEnvironmentVariableW(L"PATH", wPathVariable, 32767);
 
 	WCHAR* wExeDirectory = new WCHAR[MAX_PATH];
-	wExeDirectory = getpath(mEntry_path, NULL);
-	WCHAR* exename = wcsrchr(wExeDirectory, '\\');
-
-	if (exename == NULL) {
-		WCHAR* exename = new WCHAR[MAX_PATH];
-		exename = getpath(mEntry_path, NULL);
-
+	wcscpy_s(wExeDirectory, MAX_PATH, getpath(mEntry_path, NULL));
+	WCHAR* exename = new WCHAR[MAX_PATH];
+	
+	WCHAR* pathmeme = new WCHAR[260];
+	pathmeme=wcsrchr(wExeDirectory, '\\');
+	if (pathmeme == NULL) {
+		WCHAR* pathmeme = new WCHAR[MAX_PATH];
+		wcscpy_s(pathmeme, MAX_PATH, getpath(mEntry_path, NULL));
 		GetModuleFileNameW(NULL, wExeDirectory, MAX_PATH);
 		(wcsrchr(wExeDirectory, _T('\\')))[1] = 0; // 删除文件名，只获得路径字串
+		wcscpy_s(exename, MAX_PATH, pathmeme);
 	}
 	else {
-		exename++;
+		pathmeme++;
+		wcscpy_s(exename, MAX_PATH, pathmeme);	
 		int exesize = wcslen(wExeDirectory);
-		int namesize = wcslen(exename);
+		int namesize = wcslen(pathmeme);
 		for (int nameserial = 0; nameserial < namesize; nameserial++) {
 			wExeDirectory[exesize - nameserial - 1] = '\0';
-		}
+		}		
+		pathmeme--;
 	}
+	wcscpy_s(pathmeme, MAX_PATH, L"");
+
+
 	//for (int i = 0; pFilename[i] != '\0'; i++) {
 	//	wExeDirectory[exesize + i - 1] = pFilename[i];
 	//}
-
-
-	//exe路径（不包含exe名字）
-	WCHAR* wDLLPath = new WCHAR[MAX_PATH];
-	wDLLPath = getpath(mEntry_path, NULL);
-
 
 
 	//结果存放
@@ -453,9 +474,6 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 	//dll是否存在标志
 	BOOL bFoundInDLLSearchPath = FALSE;
 	WCHAR* tPathBeingChecked = new WCHAR[MAX_PATH];
-
-	
-
 	WCHAR* wNextToken = NULL;
 	WCHAR* wPathVariable_WorkingCopy = new WCHAR[32767];
 	WCHAR* wFoundinPath = new WCHAR [260];
@@ -463,8 +481,8 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 
 	WCHAR* wSplitPath_check = new WCHAR[MAX_PATH];
 	//程序同名路径检测
-	tPathBeingChecked=getpath(wExeDirectory,NULL);
-	tPathBeingChecked = getpath(tPathBeingChecked, pFilename);
+	wcscpy_s(tPathBeingChecked, MAX_PATH, getpath(wExeDirectory, pFilename));
+
 	int pathchecked = 0;
 	switch (check1(dllSearch, tPathBeingChecked)) {
 	case 1:
@@ -480,8 +498,7 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 	default:
 		break;
 	}
-
-	tPathBeingChecked = getpath(wWindowsDirectory, pFilename);
+	wcscpy_s(tPathBeingChecked, MAX_PATH, getpath(wWindowsDirectory, pFilename));
 	//windows文件夹中进行寻找
 	switch (check2(dllSearch, tPathBeingChecked)) {
 	case 1:
@@ -502,7 +519,7 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 	}
 	
 	//system文件夹中进行寻找	
-	tPathBeingChecked = getpath(wSystemDirectory, pFilename);
+	wcscpy_s(tPathBeingChecked, MAX_PATH, getpath(wSystemDirectory, pFilename));
 	switch (check3(dllSearch, tPathBeingChecked)) {
 	case 1:
 		if (pathchecked == 2) {
@@ -521,7 +538,7 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 		break;
 	}
 	//system(16bit)中查找
-	tPathBeingChecked = getpath(wSystemDirectory_16bit, pFilename);
+	wcscpy_s(tPathBeingChecked, MAX_PATH, getpath(wSystemDirectory_16bit, pFilename));
 
 	switch (check4(dllSearch, tPathBeingChecked)) {
 	case 1:
@@ -544,13 +561,12 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 		//path中查找	
 		wPathVariable_WorkingCopy = wPathVariable;
 		WCHAR* wSplitPath = wcstok_s(wPathVariable_WorkingCopy, L";", &wNextToken);
-		
 		while (wSplitPath != NULL)
 		{
 			
-			wSplitPath_check=getpath (wSplitPath,NULL);
+			wcscpy_s(wSplitPath_check,MAX_PATH,getpath (wSplitPath,NULL));
 			if (wSplitPath[(wcslen(wSplitPath) - 1)] != '\\')
-				wSplitPath_check=getpath(wSplitPath_check, slash);
+				wcscpy_s(wSplitPath_check, MAX_PATH, getpath(wSplitPath,L"\\"));
 			
 			if (!_wcsicmp(wSplitPath_check, wWindowsDirectory))
 			{
@@ -581,14 +597,14 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 			}
 			
 			// Create variable which is full path to libary which is being checked 
-			tPathBeingChecked = getpath(wSplitPath, NULL);
+			wcscpy_s(tPathBeingChecked,MAX_PATH,getpath(wSplitPath, NULL));
 
 			// Only append a final backslash if there isn't one there already 
 			if (tPathBeingChecked[(wcslen(tPathBeingChecked) - 1)] != '\\') {
 				tPathBeingChecked[(wcslen(tPathBeingChecked) - 1)]='\\';
 			}
-			tPathBeingChecked = getpath(tPathBeingChecked, pFilename);
-			
+			wcscpy_s(tPathBeingChecked, MAX_PATH, getpath(tPathBeingChecked, pFilename));
+
 			//Check whether that file exists 
 			if (PathFileExistsW(tPathBeingChecked))
 			{
@@ -603,10 +619,8 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 					if (dllSearch[DLL_PATH_VARIABLE] != DLL_FOUND_UNSIGNED)
 						dllSearch[DLL_PATH_VARIABLE] = DLL_FOUND_SIGNED;
 					if (recheck(tPathBeingChecked) == 1) {
-						wFoundinPath = getpath(tPathBeingChecked,NULL);
-						wFoundinPath = getpath(wFoundinPath, L"[SIGNED]");
+						wcscpy_s(wFoundinPath, MAX_PATH, getpath(tPathBeingChecked, L"[SIGNED] use unsigned DLL\n"));
 						bchanged[pathchecked] = 1;
-						wFoundinPath = getpath(wFoundinPath, L"use unsigned DLL\n");	
 						wfoundinpath[patherrornum] = wFoundinPath;
 						patherrornum++;
 					}
@@ -614,18 +628,18 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 				else
 				{
 					//Update the fact we've found one, and append to the results wcsing 
-					dllSearch[DLL_PATH_VARIABLE] = DLL_FOUND_UNSIGNED;
-					wFoundinPath = getpath(tPathBeingChecked, NULL);
-					wFoundinPath= getpath(wFoundinPath, L"[UNSIGNED]\n");
+					dllSearch[DLL_PATH_VARIABLE] = DLL_FOUND_UNSIGNED;	
+					wcscpy_s(wFoundinPath, MAX_PATH,getpath(tPathBeingChecked, L"[UNSIGNED]\n"));
 					wfoundinpath[patherrornum] = wFoundinPath;
 					patherrornum++;
 				}		
 			}
 			//Move to next delimited item 
 			wSplitPath = wcstok_s(NULL, L";", &wNextToken);	
+			
 		}
 	}
-	
+
 	// Ignore SysWow64, otherwise you get a TON of matches 
 	//WCHAR tWow64Dir[MAX_PATH];
 	//wcscpy_t(tWow64Dir, wWindowsDirectory);
@@ -688,6 +702,20 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 			printf("\n-------------------------------------------------------------------------------\n");
 		}
 	}
+
+	delete[] wSystemDirectory;
+	delete[] wWindowsDirectory;
+	delete[] wSystemDirectory_16bit;
+	delete[] tWow64Dir;
+	delete[] wExeDirectory;
+	delete[] exename;
+	delete[] tPathBeingChecked;
+	delete[] wFoundinPath;
+	delete[] wSplitPath_check;
+	delete[] wfoundinpath;
+	delete[] bchanged;
+	delete[]  pathmem;
+	delete[] wPathVariable_WorkingCopy;
 	if (iUnsignedFound > 0)
 		return 1;
 	return 0;
@@ -695,8 +723,6 @@ int trydllpath(WCHAR* mEntry_path, WCHAR* pFilename) {
 
 int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 	int patherrornum = 0;
-	WCHAR* slash = new WCHAR[2];
-	slash[0] = L'\\';
 	int* bchanged = new int[1024];
 	for (int changedserial = 0; changedserial < 1024; changedserial++) {
 		bchanged[changedserial] = 0;
@@ -716,46 +742,51 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 	/* Usually C:\Windows\System32*/
 	WCHAR *wSystemDirectory=new WCHAR[260];
 	rsize_t destsz1 = GetSystemDirectoryW(pathmem, MAX_PATH);
-	wSystemDirectory = getpath(pathmem, slash);
+	wcscpy_s(wSystemDirectory,MAX_PATH, getpath(pathmem, L"\\"));
 	
 	//Usually C:\Windows 
 	WCHAR *wWindowsDirectory=new WCHAR[260];
 	rsize_t destsz2 = GetWindowsDirectoryW(pathmem, MAX_PATH);
-	wWindowsDirectory=getpath(pathmem,slash);
+	wcscpy_s(wWindowsDirectory, MAX_PATH, getpath(pathmem, L"\\"));
 	//wWindowsDirectory[destsz2] = L'\\';
 	//wWindowsDirectory[destsz2+1] = L'\0';
 	//wcout << wWindowsDirectory << endl;
 	// Usually C:\Windows\System 
 	WCHAR * wSystemDirectory_16bit=new WCHAR[260];
 	rsize_t destsz3 = GetWindowsDirectoryW(pathmem, MAX_PATH);
-	wSystemDirectory_16bit=getpath(pathmem,L"\\system\\");
+	wcscpy_s(wSystemDirectory_16bit, MAX_PATH, getpath(pathmem, L"\\system\\"));
 	//syswow64
 	WCHAR *tWow64Dir=new WCHAR[MAX_PATH];
 	rsize_t destsz4 = GetWindowsDirectoryW(pathmem, MAX_PATH);
-	tWow64Dir = getpath(pathmem, L"syswow64\\");
+	wcscpy_s(tWow64Dir, MAX_PATH, getpath(pathmem, L"syswow64\\"));
 	// Various directories delimitered by a semi-colon in the path environmental variable 
-	WCHAR * wPathVariable=new WCHAR[32767];
+	WCHAR* wPathVariable = new WCHAR[32767];
 	GetEnvironmentVariableW(L"PATH", wPathVariable, 32767);
-	
-	WCHAR * wExeDirectory=new WCHAR[MAX_PATH];
-	wExeDirectory=getpath(mEntry_path,NULL);
-	WCHAR * exename= wcsrchr(wExeDirectory, '\\');
 
-	if (exename == NULL) {
-		WCHAR *exename=new WCHAR[MAX_PATH];
-		exename = getpath(mEntry_path, NULL);
+	WCHAR* wExeDirectory = new WCHAR[MAX_PATH];
+	wcscpy_s(wExeDirectory, MAX_PATH, getpath(mEntry_path, NULL));
+	WCHAR* exename = new WCHAR[MAX_PATH];
 
+	WCHAR* pathmeme = new WCHAR[260];
+	pathmeme = wcsrchr(wExeDirectory, '\\');
+	if (pathmeme == NULL) {
+		WCHAR* pathmeme = new WCHAR[MAX_PATH];
+		wcscpy_s(pathmeme, MAX_PATH, getpath(mEntry_path, NULL));
 		GetModuleFileNameW(NULL, wExeDirectory, MAX_PATH);
 		(wcsrchr(wExeDirectory, _T('\\')))[1] = 0; // 删除文件名，只获得路径字串
+		wcscpy_s(exename, MAX_PATH, pathmeme);
 	}
 	else {
-		exename++;
+		pathmeme++;
+		wcscpy_s(exename, MAX_PATH, pathmeme);
 		int exesize = wcslen(wExeDirectory);
-		int namesize = wcslen(exename);
+		int namesize = wcslen(pathmeme);
 		for (int nameserial = 0; nameserial < namesize; nameserial++) {
 			wExeDirectory[exesize - nameserial - 1] = '\0';
 		}
+		pathmeme--;
 	}
+	wcscpy_s(pathmeme, MAX_PATH, L"");
 	//for (int i = 0; pFilename[i] != '\0'; i++) {
 	//	wExeDirectory[exesize + i - 1] = pFilename[i];
 	//}
@@ -763,7 +794,7 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 
 	//exe路径（不包含exe名字）
 	WCHAR * wDLLPath=new WCHAR[MAX_PATH];
-	wDLLPath = getpath(mEntry_path, NULL);
+	wcscpy_s(wDLLPath,MAX_PATH,getpath(mEntry_path, NULL));
 
 
 
@@ -777,14 +808,12 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 
 	WCHAR* wNextToken = NULL;
 	WCHAR *wPathVariable_WorkingCopy=new WCHAR[32767];
-	WCHAR** wFoundinPath = new WCHAR * [126];
-	for (int numofarray = 0; numofarray < 126; numofarray++) {
-		wFoundinPath[numofarray] = new WCHAR[260];
-		*wFoundinPath[numofarray] = { 0 };
-	}
+	WCHAR* wFoundinPath = new WCHAR[260];
+	wstring* wfoundinpath = new wstring[126];
+
 	WCHAR * wSplitPath_check =new WCHAR[MAX_PATH];
 	//检测
-	tPathBeingChecked = getpath(tWow64Dir, pFilename);
+	wcscpy_s(tPathBeingChecked, MAX_PATH, getpath(tWow64Dir, pFilename));
 	int pathchecked = 0;
 	switch (check1(dllSearch, tPathBeingChecked)) {
 	case 1:
@@ -801,14 +830,14 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 		break;
 	}
 	if (pathchecked == 1 && bchanged[pathchecked] != 1) {
-		tPathBeingChecked = getpath(wExeDirectory, pFilename);
+		wcscpy_s(tPathBeingChecked,MAX_PATH,getpath(wExeDirectory, pFilename));
 		int pathchecked = 0;
 		if (recheck(tPathBeingChecked) == 1 && check1(dllSearch, tPathBeingChecked)==1) {//有签名，检查其调用dll是否有签名
 			bchanged[pathchecked] = 1;
 		}// 其调用dll有无签名的dll，查找其它路径检查是否存在同名路径			
 	}
 
-	tPathBeingChecked = getpath(wWindowsDirectory, pFilename);
+	wcscpy_s(tPathBeingChecked,MAX_PATH,getpath(wWindowsDirectory, pFilename));
 	//windows文件夹中进行寻找
 	switch (check2(dllSearch, tPathBeingChecked)) {
 	case 1:
@@ -828,7 +857,7 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 		break;
 	}
 	//system(16bit)中查找
-	tPathBeingChecked = getpath(wSystemDirectory_16bit, pFilename);
+	wcscpy_s(tPathBeingChecked,MAX_PATH,getpath(wSystemDirectory_16bit, pFilename));
 
 	switch (check4(dllSearch, tPathBeingChecked)) {
 	case 1:
@@ -847,7 +876,7 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 		break;
 	}
 	//system文件夹中进行寻找	
-	tPathBeingChecked = getpath(wSystemDirectory, pFilename);
+	wcscpy_s(tPathBeingChecked,MAX_PATH,getpath(wSystemDirectory, pFilename));
 	switch (check3(dllSearch, tPathBeingChecked)) {
 	case 1:
 		if (pathchecked == 3) {
@@ -872,11 +901,11 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 		WCHAR* wSplitPath = wcstok_s(wPathVariable_WorkingCopy, L";", &wNextToken);
 		while (wSplitPath != NULL)
 		{
-			wSplitPath_check=getpath(wSplitPath,NULL);
+			wcscpy_s(wSplitPath_check,MAX_PATH,getpath(wSplitPath,NULL));
 			if (wSplitPath[(wcslen(wSplitPath) - 1)] != '\\')
 
+				wcscpy_s(wSplitPath_check, MAX_PATH, getpath(wSplitPath_check, L"\\"));
 
-				wSplitPath_check=getpath(wSplitPath_check, slash);
 			if (!_wcsicmp(wSplitPath_check, wWindowsDirectory))
 			{
 				wSplitPath = wcstok_s(NULL, L";", &wNextToken);
@@ -905,13 +934,13 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 			}
 
 			// Create variable which is full path to libary which is being checked 
-			tPathBeingChecked = getpath(wSplitPath, NULL);
+			wcscpy_s(tPathBeingChecked,MAX_PATH,getpath(wSplitPath, NULL));
 		
 			// Only append a final backslash if there isn't one there already 
 			if (tPathBeingChecked[(wcslen(tPathBeingChecked) - 1)] != '\\'){
-				tPathBeingChecked = getpath(tPathBeingChecked, slash);
+				wcscpy_s(tPathBeingChecked,MAX_PATH,getpath(tPathBeingChecked, L"\\"));
 			}
-			tPathBeingChecked = getpath(tPathBeingChecked, pFilename);
+			wcscpy_s(tPathBeingChecked,MAX_PATH,getpath(tPathBeingChecked, pFilename));
 
 			//Check whether that file exists 
 			if (PathFileExistsW(tPathBeingChecked))
@@ -926,10 +955,9 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 					if (dllSearch[DLL_PATH_VARIABLE] != DLL_FOUND_UNSIGNED)
 						dllSearch[DLL_PATH_VARIABLE] = DLL_FOUND_SIGNED;										
 					if (recheck(tPathBeingChecked) == 1) {
-						wFoundinPath[patherrornum] = getpath(tPathBeingChecked,NULL);
-						wFoundinPath[patherrornum] = getpath(wFoundinPath[patherrornum], L"[SIGNED]");
+						wcscpy_s(wFoundinPath, MAX_PATH, getpath(tPathBeingChecked, L"[SIGNED] use unsigned DLL\n"));
 						bchanged[pathchecked] = 1;
-						wFoundinPath[patherrornum] = getpath(wFoundinPath[patherrornum], L"use unsigned DLL\n");
+						wfoundinpath[patherrornum] = wFoundinPath;
 						patherrornum++;
 					}										
 				}
@@ -937,14 +965,15 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 				{
 					//Update the fact we've found one, and append to the results wcsing 
 					dllSearch[DLL_PATH_VARIABLE] = DLL_FOUND_UNSIGNED;
-					wFoundinPath[patherrornum] = getpath(tPathBeingChecked,NULL);
-					wFoundinPath[patherrornum] = getpath(wFoundinPath[patherrornum], L"[UNSIGNED]\n");
+					wcscpy_s(wFoundinPath, MAX_PATH, getpath(tPathBeingChecked, L"[UNSIGNED]\n"));
+					wfoundinpath[patherrornum] = wFoundinPath;
 					patherrornum++;
 				}
 			}
 			//Move to next delimited item 
 			wSplitPath = wcstok_s(NULL, L";", &wNextToken);
 		}
+		delete[] wSplitPath;
 	}
 
 	// Ignore SysWow64, otherwise you get a TON of matches 
@@ -995,20 +1024,32 @@ int trydllpath32(WCHAR* mEntry_path, WCHAR* pFilename) {
 			wprintf(L"Windows 路径:%s%s [UNSIGNED]\n\n", wWindowsDirectory, pFilename);
 
 
-		if (dllSearch[DLL_PATH_VARIABLE] != DLL_NOT_FOUND)
-			for (int printnum = 0; printnum <= patherrornum; printnum++) {
-				if (wcslen(wFoundinPath[printnum]) != 0) {
+		if (dllSearch[DLL_PATH_VARIABLE] != DLL_NOT_FOUND) {
+			for (int printnum = 0; printnum < patherrornum; printnum++) {
+				if (wfoundinpath[printnum].length()) {
 					wprintf(L"环境变量路径:");
-					wcout << wFoundinPath[printnum];
+					wcout << wfoundinpath[printnum] << endl;
 				}
-					
 			}
-			
+		}
 		if (bchanged[0] == 1 || bchanged[1] == 1 || bchanged[2] == 1 || bchanged[3] == 1 || bchanged[4] == 1 || iUnsignedFound > 0) {
 			checkmark = 1;
 			printf("\n-------------------------------------------------------------------------------\n");
 		}
 	}
+	delete[] wSystemDirectory;
+	delete[] wWindowsDirectory;
+	delete[] wSystemDirectory_16bit;
+	delete[] tWow64Dir;
+	delete[] wExeDirectory;
+	delete[] exename;
+	delete[] tPathBeingChecked;
+	delete[] wFoundinPath;
+	delete[] wSplitPath_check;
+	delete[] wfoundinpath;
+	delete[] bchanged;
+	delete[]  pathmem;
+	delete[] wPathVariable_WorkingCopy;
 	if (iUnsignedFound > 0)
 		return 1;
 	return 0;
@@ -1024,7 +1065,7 @@ void StringToWstring(std::wstring& szDst, std::string str)
 	MultiByteToWideChar(CP_ACP, 0, (LPCSTR)temp.c_str(), -1, (LPWSTR)wszUtf8, len);
 	szDst = wszUtf8;
 	std::wstring r = wszUtf8;
-	delete[] wszUtf8;
+	delete[]  wszUtf8;
 }
 
 int dllcheck(char * Name) {
@@ -1046,7 +1087,6 @@ int dllcheck(char * Name) {
 	string* DllList = new string[MAX_PATH];
 	int import_count = 0;	
 	import_count = dlllist(Name, DllList);	
-
 	if (import_count == 0) {
 		cout << "文件不存在"<< endl;
 		checkmark = 2;
@@ -1062,22 +1102,28 @@ int dllcheck(char * Name) {
 			checksigned = trydllpath32(wname, wcht);
 		else
 			checksigned = trydllpath(wname, wcht);
+		delete[] wcht;
 	}
+
+	delete[] wname;
+	delete[] DllList;
+	delete[] wDLLlist;
 	return checksigned;
 }
 
 int main(int argc,char* argv[]) {
 
-	char * Name=new char[260];	
+	char * Name=new char[260];
 	setlocale(LC_ALL, "");
 	if (argc > 1) {
-		 Name= argv[1];
+		 strcpy_s(Name,MAX_PATH,argv[1]);
 	}
 	else {
 		printf("用法示范：dllcheck.exe exepath(c:\\windows\\system32\\clac.exe)");
 		return 0;
 	}
 	dllcheck(Name);
+	delete[] Name;
 	if (checkmark == 0)
 		cout << "检测完毕，未测出dll劫持可能" << endl;
 	else if (checkmark == 1)

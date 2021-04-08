@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\lmc\Desktop\mycode\ucapass\ucapass\main.cpp(16): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\lmc\Desktop\mycode\ucapass\ucapass\main.cpp(33): warning C4267: “参数”: 从“size_t”转换到“DWORD”，可能丢失数据
+C:\Users\lmc\Desktop\mycode\ucapass\ucapass\main.cpp(41): warning C4267: “参数”: 从“size_t”转换到“DWORD”，可能丢失数据
+  ucapass.vcxproj -> C:\Users\lmc\Desktop\mycode\ucapass\x64\Debug\ucapass.exe
